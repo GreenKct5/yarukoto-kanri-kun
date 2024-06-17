@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::view('/home', 'home.home');
+Route::view('/createTodo', 'createTodo.createTodo');
+Route::view('/myPage', 'myPage.myPage');
+Route::view('/signUp', 'signUp.signUp');
+Route::view('/signIn', 'signIn.signIn');
