@@ -16,6 +16,14 @@ jobs:
         run: cp .env.example .env
       - name: Run composer install
         run: composer install -n --prefer-dist
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install Node.js dependencies
+        run: npm install
+      - name: Build assets with Vite
+        run: npm run build
       - name: Generate application key
         run: php artisan key:generate
       - name: Run tests
