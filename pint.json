@@ -1,0 +1,14 @@
+{
+    "preset": "laravel",
+    "cache-file": ".pint.cache",
+    "exclude": ["database/migrations"],
+    "rules": {
+        "concat_space": false,
+        "indentation_type": true,
+        "not_operator_with_successor_space": true,
+        "phpdoc_align": {
+            "align": "left"
+        },
+        "phpdoc_separation": false
+    }
+}
