@@ -3,8 +3,11 @@ self.addEventListener('install', function(event) {
       caches.open('my-cache').then(function(cache) {
         return cache.addAll([
           '/',
-          '/css/app.css',
-          '/js/app.js'
+          '/home',
+          '/myPage',
+          '/createTodo',
+          '/signIn',
+          '/signUp',
         ]);
       })
     );
