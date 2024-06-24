@@ -6,16 +6,34 @@
 </head>
 <body>
     <h1>Welcome to the Home Page</h1>
-    <?php
-        $subject = ["subject1", "subject2"];
-        foreach ($subject as $v){
-            echo '
-            <div class="h-32 w-32 flex items-center justify-center rounded-md bg-green-400">
-                '. $v.'
-            </div>';
-        }
-    ?>
-
+    <div class="h-32 w-64  rounded-md bg-green-800">
+                <b><input type="checkbox">課題内容</b>
+                <p>　・日付，時間</p>
+                <p>　・提出先</p>
+                <p>　・タグ</p>
+                <p>　・コメント</p>
+            </div>
+    <div class="h-32 w-64  rounded-md bg-green-600">
+                <b><input type="checkbox">課題内容</b>
+                <p>　・日付，時間</p>
+                <p>　・提出先</p>
+                <p>　・タグ</p>
+                <p>　・コメント</p>
+            </div>
+    <div class="h-32 w-64  rounded-md bg-green-400">
+                <b><input type="checkbox">課題内容</b>
+                <p>　・日付，時間</p>
+                <p>　・提出先</p>
+                <p>　・タグ</p>
+                <p>　・コメント</p>
+            </div>
+            <div class="h-32 w-64  rounded-md bg-green-200">
+                <b><input type="checkbox">課題内容</b>
+                <p>　・日付，時間</p>
+                <p>　・提出先</p>
+                <p>　・タグ</p>
+                <p>　・コメント</p>
+            </div>
 
 </body>
 </html>
