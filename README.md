@@ -23,9 +23,13 @@
     composer install
     npm run dev
    ```
-   別のターミナルを開く
+5. 別のターミナルを開く
    ```bash
     php artisan serve
+   ```
+   データベースにアクセスする場合
+   ```bash
+    make run
    ```
 
 ## 自動整形ツールコマンド
