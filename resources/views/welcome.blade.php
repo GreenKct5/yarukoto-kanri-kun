@@ -6,8 +6,22 @@
         @vite('resources/css/app.css')
         <title>Laravel</title>
 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/serviceworker.js')
+                .then(function(registration) {
+                console.log('Service Worker registered with scope:', registration.scope);
+                }).catch(function(error) {
+                console.log('Service Worker registration failed:', error);
+                });
+            }
+        </script>
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
+        <link rel="manifest" href="build/manifest.json">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
         <!-- Styles -->
