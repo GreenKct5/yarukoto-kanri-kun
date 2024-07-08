@@ -14,7 +14,7 @@
                 <img class="object-scale-down h-5 w-5" src="../../../img/arrow.svg">
             </button>
         </div>
-        <h2 class="text-center text-2xl font-bold mb-6">サインアップ</h2>
+        <h2 class="text-center text-2xl font-bold mb-6">やること管理くん</h2>
             <form method="POST">
                 @csrf
                 <div class="mb-4">
