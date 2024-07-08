@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>Home Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @vite('resources/css/app.css')
+    <title>やること管理くん</title>
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap">
 </head>
 <body>
     <h1 class="ml-2">や管くん</h1>
