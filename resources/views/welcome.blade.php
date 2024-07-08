@@ -4,11 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @vite('resources/css/app.css')
-    <title>Laravel</title>
+    <title>やること管理くん</title>
     <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap">
 </head>
 <body class="antialiased flex justify-center items-center h-screen">
-    <div class="container mx-auto max-w-7xl p-6 text-center">
         <div class="flex flex-col items-center space-y-4">
             <button type="button" onclick="location.href='./signIn'" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded w-40">
                 log in
