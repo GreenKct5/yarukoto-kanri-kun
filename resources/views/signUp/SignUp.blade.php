@@ -14,12 +14,13 @@
                 <img class="object-scale-down h-5 w-5" src="../../../img/arrow.svg">
             </button>
         </div>
-        <h2 class="text-center text-2xl font-bold mb-6">やること管理くん</h2>
-            <form method="POST">
+        <h2 class="text-center text-3xl font-bold mb-6">やること管理くん</h2>
+        <img class="mx-auto w-56" src="../../../img/yakankun.png">
+            <form method="POST" class="mx-4">
                 @csrf
                 <div class="mb-4">
-                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">ユーザー名</label>
-                    <input id="email" type="email" name="email" required autofocus class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <label for="username" class="block text-gray-700 text-sm font-bold mb-2">ユーザー名</label>
+                    <input id="username" type="text" name="username" required autofocus class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
                 <div class="mb-4">
                     <label for="email" class="block text-gray-700 text-sm font-bold mb-2">メールアドレス</label>
