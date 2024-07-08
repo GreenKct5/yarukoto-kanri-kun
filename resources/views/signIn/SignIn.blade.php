@@ -11,7 +11,7 @@
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <h2 class="text-center text-2xl font-bold mb-6">ログイン</h2>
             <div class="flex items-center justify-between">
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">サインイン</button>
+                    <button type="button" onclick="location.href='./signUp'" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">サインアップ</button>
                 </div>
             <form method="POST">
                 @csrf
