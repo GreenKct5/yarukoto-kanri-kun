@@ -12,7 +12,7 @@
     <div class="h-auto w-64  rounded-md bg-green-800">
                 <b class="ml-1">科目名</b>
                 <div class="h-auto w-60 mx-auto rounded-md bg-green-200">
-                            <div class="flex ml-1"><input type="checkbox"><img class="object-scale-down h-5 w-5" src="../../../img/tusk.svg"><p class="ml-1">課題内容</p></div>
+                            <div class="flex ml-1"><input type="checkbox"><img class="object-scale-down h-5 w-5" src="../../../img/task.svg"><p class="ml-1">課題内容</p></div>
                             <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/date.svg"><p class="ml-1">日付，時間</p></div>
                             <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/propose.svg"><p class="ml-1">提出先
                                 <select name="提出先">
@@ -25,7 +25,7 @@
                             <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/memo.svg"><p class="ml-1">メモ</p></div>
                         </div><br/>
                 <div class="h-auto w-60 mx-auto rounded-md bg-green-200">
-                <div class="flex ml-1"><input type="checkbox"><img class="object-scale-down h-5 w-5" src="../../../img/tusk.svg"><p class="ml-1">課題内容</p></div>
+                <div class="flex ml-1"><input type="checkbox"><img class="object-scale-down h-5 w-5" src="../../../img/task.svg"><p class="ml-1">課題内容</p></div>
                             <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/date.svg"><p class="ml-1">日付，時間</p></div>
                             <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/propose.svg"><p class="ml-1">提出先
                                 <select name="提出先">
@@ -41,7 +41,7 @@
     <div class="h-auto w-64  rounded-md bg-green-600">
                 <b>&nbsp科目名</b>
                 <div class="h-auto w-60 mx-auto rounded-md bg-green-200">
-                <div class="flex ml-1"><input type="checkbox"><img class="object-scale-down h-5 w-5" src="../../../img/tusk.svg"><p class="ml-1">課題内容</p></div>
+                <div class="flex ml-1"><input type="checkbox"><img class="object-scale-down h-5 w-5" src="../../../img/task.svg"><p class="ml-1">課題内容</p></div>
                             <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/date.svg"><p class="ml-1">日付，時間</p></div>
                             <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/propose.svg"><p class="ml-1">提出先
                                 <select name="提出先">
