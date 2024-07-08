@@ -14,13 +14,13 @@ class TodoFactory extends Factory
     {
         return [
             'id' => $this->faker->uuid,
-            'subject_id' => Subject::factory(),
+            'subject_id' => Subject::All()->pluck('id')->random(),
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
             'deadline' => $this->faker->dateTimeBetween('now', '+1 year'),
             'created_at' => now(),
             'updated_at' => now(),
-            'last_update_user' => User::factory(),
+            'last_update_user' => User::All()->pluck('id')->random(),
         ];
     }
 }

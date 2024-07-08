@@ -13,22 +13,12 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        $user = User::factory()->create();
-        $group = Group::factory()->create();
-        
-        UsersGroup::factory()->create([
-            'user_id' => $user->id,
-            'group_id' => $group->id,
-        ]);
-
-        $user->groups()->attach($group->id, ['id' => (string) \Illuminate\Support\Str::uuid()]);
-
-        Subject::factory()->create(['group_id' => $group->id]);
-        $todo = Todo::factory()->create(['last_update_user' => $user->id]);
-        TodoStatus::factory()->create([
-            'user_id' => $user->id,
-            'todo_id' => $todo->id,
-        ]);
+        User::factory()->count(50)->create();
+        Group::factory()->count(10)->create();
+        UsersGroup::factory()->count(100)->create();
+        Subject::factory()->count(10)->create();
+        Todo::factory()->count(20)->create();
+        TodoStatus::factory()->count(50)->create();
     }
 }
 

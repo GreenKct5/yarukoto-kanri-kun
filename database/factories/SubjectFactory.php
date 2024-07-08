@@ -11,9 +11,10 @@ class SubjectFactory extends Factory
 
     public function definition()
     {
+        $group_id = Group::all()->pluck("id");
         return [
             'id' => $this->faker->uuid,
-            'group_id' => Group::factory(),
+            'group_id' => $this -> faker -> randomElement($group_id),
             'name' => $this->faker->word,
         ];
     }

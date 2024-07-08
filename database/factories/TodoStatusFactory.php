@@ -13,8 +13,8 @@ class TodoStatusFactory extends Factory
     {
         return [
             'id' => $this->faker->uuid,
-            'user_id' => User::factory(),
-            'todo_id' => Todo::factory(),
+            'user_id' => User::All()->pluck('id')->random(),
+            'todo_id' => Todo::All()->pluck('id')->random(),
             'iscompleted' => $this->faker->boolean,
         ];
     }
