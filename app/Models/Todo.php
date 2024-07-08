@@ -1,13 +1,13 @@
 <?php
+
 namespace App\Models;
 
-use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
 
 class Todo extends Model
 {
-
     // プライマリーキーのカラム名
     protected $primaryKey = 'id';
 
@@ -25,6 +25,7 @@ class Todo extends Model
         // newした時に自動的にuuidを設定する。
         $this->attributes['id'] = Uuid::uuid4()->toString();
     }
+
     use HasFactory;
 
     protected $fillable = [

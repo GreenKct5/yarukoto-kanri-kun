@@ -1,13 +1,13 @@
 <?php
+
 namespace App\Models;
 
-use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
 
 class Group extends Model
 {
-
     // プライマリーキーのカラム名
     protected $primaryKey = 'id';
 

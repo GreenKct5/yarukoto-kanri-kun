@@ -1,8 +1,9 @@
 <?php
+
 namespace Database\Factories;
 
-use App\Models\Todo;
 use App\Models\Subject;
+use App\Models\Todo;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

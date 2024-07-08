@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -7,9 +8,10 @@ use Ramsey\Uuid\Uuid;
 
 class TodoStatus extends Model
 {
+    public $timestamps = false;
 
-    public $timestamps = false; 
-    protected $table = "todo_status";
+    protected $table = 'todo_status';
+
     // プライマリーキーのカラム名
     protected $primaryKey = 'id';
 
@@ -27,6 +29,7 @@ class TodoStatus extends Model
         // newした時に自動的にuuidを設定する。
         $this->attributes['id'] = Uuid::uuid4()->toString();
     }
+
     use HasFactory;
 
     protected $fillable = [

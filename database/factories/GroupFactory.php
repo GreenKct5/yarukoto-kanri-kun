@@ -1,5 +1,7 @@
 <?php
+
 namespace Database\Factories;
+
 use App\Models\Group;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

@@ -11,7 +11,9 @@ class UsersGroup extends Model
 
     // UUIDを主キーとして使用する設定
     protected $keyType = 'string';
-    protected $table = "users_group";
+
+    protected $table = 'users_group';
+
     public $incrementing = false;
 
     // フィルラブルの設定

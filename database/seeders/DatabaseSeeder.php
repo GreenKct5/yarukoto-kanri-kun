@@ -1,13 +1,14 @@
 <?php
+
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use App\Models\User;
 use App\Models\Group;
-use App\Models\UsersGroup;
 use App\Models\Subject;
 use App\Models\Todo;
 use App\Models\TodoStatus;
+use App\Models\User;
+use App\Models\UsersGroup;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,4 +22,3 @@ class DatabaseSeeder extends Seeder
         TodoStatus::factory()->count(50)->create();
     }
 }
-
