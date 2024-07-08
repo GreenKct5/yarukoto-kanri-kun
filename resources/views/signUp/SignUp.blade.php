@@ -9,11 +9,12 @@
 </head>
 <body class="flex items-center justify-center h-screen">
     <div class="w-full max-w-md">
-        <div class="">
+        <div class="flex items-center justify-between">
+            <button type="button" onclick="location.href='./'" class="font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                <img class="object-scale-down h-5 w-5" src="../../../img/arrow.svg">
+            </button>
+        </div>
         <h2 class="text-center text-2xl font-bold mb-6">サインアップ</h2>
-            <div class="flex items-center justify-between">
-                    <button type="button" onclick="location.href='./signIn'" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">ログイン</button>
-                </div>
             <form method="POST">
                 @csrf
                 <div class="mb-4">
