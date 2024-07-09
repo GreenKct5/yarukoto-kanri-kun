@@ -26,3 +26,4 @@ Route::post('/createTodo', [CreateTodoController::class, 'store'])->name('todos.
 Route::view('/myPage', 'myPage.myPage');
 Route::view('/signUp', 'signUp.signUp');
 Route::view('/signIn', 'signIn.signIn');
+Route::view('/loading', 'loading');

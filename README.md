@@ -66,3 +66,13 @@
 |remove|削除（ファイル）|
 |upgrade|バージョンアップ|
 |revert|変更取り消し|
+
+## loadingの使い方
+```bash
+@extends('loading')
+
+@section('content')
+    <h1>Welcome to My Laravel App</h1>
+    <p>This is the content of the page.</p>
+@endsection
+```
