@@ -5,9 +5,8 @@
     @vite('resources/css/app.css')
     <title>CreateTodo Page</title>
 </head>
-<body class="bg-gray-100">
+<body>
     <div class="container mx-auto p-4">
-        <h1 class="text-3xl font-bold mb-4">Welcome to the CreateTodo Page</h1>
 
         @if ($errors->any())
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4" role="alert">
@@ -15,49 +14,50 @@
             </div>
         @endif
 
-        <form action="" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <p>課題を追加する</p>
+        <form action="" method="POST">
             @csrf
-            <div class="mb-4">
-                <label class="form-label" for="subject">
-                    科目名
+            <div class="flex mb-4">
+                <label class="form-label mr-1" for="subject">
+                    <img class="h-16 w-16" src="../../../img/task.svg"/>
                 </label>
-                <input class="form-input" id="subject" type="text" name="subject" value="{{ old('subject') }}">
+                <input class="form-input border-gray-500 shadow-none mx-3" id="subject" type="text" name="subject" placeholder="課題内容" value="{{ old('subject') }}">
             </div>
-            <div class="mb-4">
-                <label class="form-label" for="title">
-                    課題名
+            <div class="flex h-20 mb-4">
+                <label class="form-label mr-1" for="deadline">
+                    <img class="object-cover h-16 w-16" src="../../../img/date.svg"/>
                 </label>
-                <input class="form-input" id="title" type="text" name="title" value="{{ old('title') }}">
+                <input class="w-32 mx-2 bg-gray-200 rounded-md px-4 py-2" id="deadline" type="date" name="deadline" value="{{ old('deadline') }}">
+                <input class="w-32 bg-gray-200 rounded-md" id="deadline_time" type="time" name="deadline_time" value="{{ old('deadline_time') }}">
             </div>
-            <div class="mb-4">
-                <label class="form-label" for="deadline">
-                    提出期限
+            <div class="flex mb-4">
+                <label class="form-label mr-1" for="submission_place">
+                    <img class="h-16 w-16" src="../../../img/propose.svg"/>
                 </label>
-                <input class="form-input" id="deadline" type="date" name="deadline" value="{{ old('deadline') }}">
-                <input class="form-input mt-2" id="deadline_time" type="time" name="deadline_time" value="{{ old('deadline_time') }}">
+                <select name="提出先" class="ml-2">
+                    <option value="">提出先</option>
+                    <option value="Webclass">Webclass</option>
+                    <option value="Teams">Teams</option>
+                    <option value="授業時">授業時</option>
+                </select>
             </div>
-            <div class="mb-4">
-                <label class="form-label" for="submission_place">
-                    提出先
+            <div class="flex mb-4">
+                <label class="form-label mr-1" for="tags">
+                    <img class="h-16 w-16" src="../../../img/tags.svg"/>
                 </label>
-                <input class="form-input" id="submission_place" type="text" name="submission_place" value="{{ old('submission_place') }}">
+                <a>tag</a>
             </div>
-            <div class="mb-4">
-                <label class="form-label" for="tags">
-                    タグ
+            <div class="flex mb-4">
+                <label class="form-label mr-1" for="notes">
+                    <img class="h-16 w-16" src="../../../img/memo.svg"/>
                 </label>
-                <input class="form-input" id="tags" type="text" name="tags" value="{{ old('tags') }}">
-            </div>
-            <div class="mb-4">
-                <label class="form-label" for="notes">
-                    メモ
-                </label>
-                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="notes" name="notes">{{ old('notes') }}</textarea>
+                <textarea class="appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 mx-3" id="notes" name="notes" placeholder="コメント">{{ old('notes') }}</textarea>
             </div>
             <div class="flex items-center justify-between">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                    保存
+                <button class="bg-white hover:bg-gray-100 text-gray-400 border border-gray-400 border-1 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="">
+                    キャンセル
                 </button>
+                <input class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="決定"/>
             </div>
         </form>
     </div>
