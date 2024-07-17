@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('todoStatus', function (Blueprint $table) {
+        Schema::create('todo_status', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->char('user_id', 36);
             $table->char('todo_id', 36);
             $table->boolean('iscompleted')->default(false);
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('todo_id')->references('id')->on('todo');
+            $table->foreign('todo_id')->references('id')->on('todos');
         });
     }
 
