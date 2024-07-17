@@ -5,9 +5,9 @@
     <title>CreateTodo Page</title>
     @vite('resources/css/app.css')
 </head>
-<body class="flex justify-center">
-    <div class="container mx-auto my-16 p-4 bg-white" id="menu">
-        @if ($errors->any() && ($errors->has('subject') || $errors->has('deadline') || $errors->has('提出先')))
+<body class="flex items-center justify-center min-h-screen">
+    <div class="container mx-auto p-4" id="menu">
+        @if ($errors->any() && ($errors->has('subject') || $errors->has('task') || $errors->has('deadline') || $errors->has('提出先')))
             <div class="absolute left-3/4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded -mx-1.5" role="alert">
                 <strong class="font-bold">記入していない箇所があります</strong>
             </div>
@@ -17,9 +17,15 @@
             @csrf
             <div class="flex mb-4">
                 <label class="form-label my-2 mr-1" for="subject">
+                    <img class="h-16 w-16" src="../../../img/book.svg"/>
+                </label>
+                <input class="form-input border-gray-500 shadow-none mx-3" id="subject" type="text" name="subject" placeholder="科目名" value="{{ old('subject') }}">
+            </div>
+            <div class="flex mb-4">
+                <label class="form-label my-2 mr-1" for="task">
                     <img class="h-16 w-16" src="../../../img/task.svg"/>
                 </label>
-                <input class="form-input border-gray-500 shadow-none mx-3" id="subject" type="text" name="subject" placeholder="課題内容" value="{{ old('subject') }}">
+                <input class="form-input border-gray-500 shadow-none mx-3" id="task" type="text" name="task" placeholder="課題内容" value="{{ old('task') }}">
             </div>
             <div class="flex h-20 mb-4">
                 <label class="form-label my-2 mr-1" for="deadline">
@@ -52,7 +58,7 @@
                 <textarea class="appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 mx-3 resize-none" id="notes" name="notes" placeholder="コメント">{{ old('notes') }}</textarea>
             </div>
             <div class="flex items-center justify-end mx-4 my-5">
-                <button class="m-2.5 bg-white hover:bg-gray-100 text-gray-400 border border-gray-400 border-1 font-bold py-3 px-5 rounded focus:outline-none focus:shadow-outline" type="button" onclick="window:history.back();">
+                <button class="m-2.5 bg-white hover:bg-gray-100 text-gray-400 border border-gray-400 font-bold py-3 px-5 rounded focus:outline-none focus:shadow-outline" type="button" onclick="window.history.back();">
                     キャンセル
                 </button>
                 <input class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-5 rounded focus:outline-none focus:shadow-outline" type="submit" value="決定" onclick="location.href='./home'" />
