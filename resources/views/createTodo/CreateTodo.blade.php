@@ -5,8 +5,8 @@
     <title>CreateTodo Page</title>
     @vite('resources/css/app.css')
 </head>
-<body>
-    <div class="container mx-auto p-4 z-10 absolute bg-white transition-all duration-300 ease-out" id="menu">
+<body class="flex justify-center">
+    <div class="container mx-auto my-16 p-4 bg-white" id="menu">
         @if ($errors->any() && ($errors->has('subject') || $errors->has('deadline') || $errors->has('提出先')))
             <div class="absolute left-3/4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded -mx-1.5" role="alert">
                 <strong class="font-bold">記入していない箇所があります</strong>
@@ -52,10 +52,10 @@
                 <textarea class="appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 mx-3 resize-none" id="notes" name="notes" placeholder="コメント">{{ old('notes') }}</textarea>
             </div>
             <div class="flex items-center justify-end mx-4 my-5">
-                <button class="m-2.5 bg-white hover:bg-gray-100 text-gray-400 border border-gray-400 border-1 font-bold py-3 px-5 rounded focus:outline-none focus:shadow-outline" type="">
+                <button class="m-2.5 bg-white hover:bg-gray-100 text-gray-400 border border-gray-400 border-1 font-bold py-3 px-5 rounded focus:outline-none focus:shadow-outline" type="button" onclick="window:history.back();">
                     キャンセル
                 </button>
-                <input class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-5 rounded focus:outline-none focus:shadow-outline" type="submit" value="決定"/>
+                <input class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-5 rounded focus:outline-none focus:shadow-outline" type="submit" value="決定" onclick="location.href='./home'" />
             </div>
         </form>
     </div>
