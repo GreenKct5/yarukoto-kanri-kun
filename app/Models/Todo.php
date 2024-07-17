@@ -3,11 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 
-class User extends Authenticatable
+class Todo extends Model
 {
     // プライマリーキーのカラム名
     protected $primaryKey = 'id';
@@ -27,34 +26,25 @@ class User extends Authenticatable
         $this->attributes['id'] = Uuid::uuid4()->toString();
     }
 
-    use HasFactory, Notifiable;
+    use HasFactory;
 
     protected $fillable = [
         'id',
-        'name',
-        'email',
-        'password',
-        'salt',
-        'icon',
+        'subject_id',
+        'title',
+        'description',
+        'deadline',
+        'last_update_user',
     ];
 
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-    public function groups()
+    public function subject()
     {
-        return $this->belongsToMany(Group::class, 'users_group', 'user_id', 'group_id');
+        return $this->belongsTo(Subject::class);
     }
 
-    public function todos()
+    public function lastUpdateUser()
     {
-        return $this->hasMany(Todo::class, 'last_update_user');
+        return $this->belongsTo(User::class, 'last_update_user');
     }
 
     public function todoStatuses()
