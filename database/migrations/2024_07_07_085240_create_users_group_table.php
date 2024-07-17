@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users_group', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->char('user_id', 36);
-            $table->char('group_id', 36);
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('group_id')->references('id')->on('groups');
-        });
+        $table->uuid('id')->primary();
+        $table->foreignUuid('user_id')->references('id')->on('users');
+        $table->foreignUuid('group_id')->references('id')->on('groups');
+        $table->timestamps();
+    });
+    
     }
 
 
