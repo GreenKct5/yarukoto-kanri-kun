@@ -29,6 +29,27 @@ class UserController extends Controller
 
         return redirect()->route('home');
     }
+    public function login(Request $request)
+    {
+        // バリデーション
+        $request->validate([
+            'email' => 'required|email|max:255',
+            'password' => 'required|min:8|max:255',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+        if (!$user) {
+            return redirect()->route('signIn')->with('error', 'メールアドレスかパスワードが間違っています');
+        }
+
+        if ($user->password !== hash('sha256', $request->password . $user->salt)) {
+            return redirect()->route('signIn')->with('error', 'メールアドレスかパスワードが間違っています');
+        }
+
+        Auth::login($user);
+
+        return redirect()->route('home');
+    }
 
     /**
      * Update the specified resource in storage.

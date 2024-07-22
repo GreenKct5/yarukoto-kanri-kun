@@ -16,7 +16,7 @@
             </div>
             <h2 class="text-center text-3xl font-bold mb-6">やること管理くん</h2>
             <img class="mx-auto w-56" src="../../../img/yakankun.png">
-            <form method="POST" class="mx-4">
+            <form method="POST" action="{{ route('signIn') }}" class="mx-4">
                 @csrf
                 <div class="mb-4">
                     <label for="email" class="block text-gray-700 text-sm font-bold mb-2">メールアドレス</label>
@@ -27,9 +27,9 @@
                     <input id="password" type="password" name="password" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
                 <div class="flex items-center justify-between">
-                    <button type="submit" onclick="location.href='./signIn'" class="bg-gray-500 hover:bg-gray-700 text-white font-bold w-full py-2 px-4 rounded">
+                    <input type="submit" class="bg-gray-500 hover:bg-gray-700 text-white font-bold w-full py-2 px-4 rounded">
                         log in
-                    </button>
+                    </input>
                 </div>
             </form>
         </div>
