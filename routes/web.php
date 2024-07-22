@@ -16,7 +16,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::view('/home', 'home.home');
 Route::view('/createTodo', 'createTodo.createTodo');

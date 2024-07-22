@@ -23,7 +23,7 @@ class UserController extends Controller
         $params->password = hash('sha256', $params->password . $params->salt);
         $params->save();
 
-        return redirect()->route('/home');
+        return redirect()->route('welcome');
     }
     /**
      * Update the specified resource in storage.
