@@ -42,6 +42,7 @@ class TodoController extends Controller
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'deadline' => $request->input('deadline') . ' ' . $request->input('deadline_time'),
+            'submit_place' => $request->place,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'last_update_user' => User::all()->pluck('id')->random(),
@@ -75,6 +76,7 @@ class TodoController extends Controller
         $validator = Validator::make($request->all(), [
             'subject_id' => 'required|string|max:255',
             'title' => 'required|string|max:255',
+            'submit_place' => 'required|string|max:255',
             'deadline' => 'required|date',
             'place' => 'required|string|max:255',
         ]);
@@ -91,6 +93,7 @@ class TodoController extends Controller
         $todo->title = $request->input('title');
         $todo->description = $request->input('description');
         $todo->deadline = $request->input('deadline') . ' ' . $request->input('deadline_time');
+        $todo->subject_place = $request->place;
         $todo->updated_at = Carbon::now();
         $todo->last_update_user = User::all()->pluck('id')->random();
         // $todo->last_update_user = auth()->user()->id;
