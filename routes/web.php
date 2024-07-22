@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ Route::get('/', function () {
 Route::view('/home', 'home.home');
 Route::view('/createTodo', 'createTodo.createTodo');
 Route::view('/myPage', 'myPage.myPage');
-Route::view('/signUp', 'signUp.signUp');
+Route::View('/signUp', 'signUp.signUp');
 Route::view('/signIn', 'signIn.signIn');
 Route::view('/loading', 'loading');
+
+Route::resource('users', UserController::class) -> only(['store', 'show', 'update', 'destroy']);
