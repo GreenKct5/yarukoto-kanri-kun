@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::view('/home', 'home.home')->name('home');
 Route::get('/createTodo', function () {
@@ -24,6 +25,8 @@ Route::get('/createTodo', function () {
 });
 Route::post('/createTodo', [TodoController::class, 'store'])->name('todos.store');
 Route::view('/myPage', 'myPage.myPage');
-Route::view('/signUp', 'signUp.signUp');
+Route::View('/signUp', 'signUp.signUp');
 Route::view('/signIn', 'signIn.signIn');
 Route::view('/loading', 'loading');
+
+Route::resource('users', UserController::class)->only(['store', 'show', 'update', 'destroy']);
