@@ -29,5 +29,5 @@ Route::View('/signUp', 'signUp.signUp');
 Route::view('/signIn', 'signIn.signIn');
 Route::view('/loading', 'loading');
 
-Route::resource('users', UserController::class)->only(['store','update', 'destroy']);
+Route::resource('users', UserController::class)->only(['store', 'update', 'destroy']);
 Route::post('/signIn', [UserController::class, 'login'])->name('signIn');

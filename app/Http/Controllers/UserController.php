@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 class UserController extends Controller
 {
     public function store(Request $request)
@@ -29,6 +28,7 @@ class UserController extends Controller
 
         return redirect()->route('home');
     }
+
     public function login(Request $request)
     {
         // バリデーション
@@ -38,7 +38,7 @@ class UserController extends Controller
         ]);
 
         $user = User::where('email', $request->email)->first();
-        if (!$user) {
+        if (! $user) {
             return redirect()->route('signIn')->withErrors('メールアドレスかパスワードが間違っています');
         }
 
