@@ -39,11 +39,11 @@ class UserController extends Controller
 
         $user = User::where('email', $request->email)->first();
         if (!$user) {
-            return redirect()->route('signIn')->with('error', 'メールアドレスかパスワードが間違っています');
+            return redirect()->route('signIn')->withErrors('メールアドレスかパスワードが間違っています');
         }
 
         if ($user->password !== hash('sha256', $request->password . $user->salt)) {
-            return redirect()->route('signIn')->with('error', 'メールアドレスかパスワードが間違っています');
+            return redirect()->route('signIn')->withErrors('メールアドレスかパスワードが間違っています');
         }
 
         Auth::login($user);
