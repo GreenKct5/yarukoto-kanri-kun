@@ -21,33 +21,35 @@
     </header>
     <main>
         <div class="h-auto max-w-8xl mx-auto rounded-md bg-green-600 mx-10 mt-24">
-            <b class="ml-1">科目名</b>
-            @foreach($todos as $todo)
-                <div class="h-auto max-w-8xl mx-5 rounded-md bg-green-200 mb-5">
-                    <div class="flex ml-1">
-                        <input id="acd-check{{ $todo->id }}" class="acd-check" type="checkbox">
-                        <img class="object-scale-down h-5 w-5" src="../../../img/task.svg">
-                        <p class="ml-1">{{ $todo->title }}</p>
+            @foreach($todos as $subjectId => $subjectTodos)
+                <b class="ml-1">{{ $subjectId }}</b>
+                @foreach($subjectTodos as $todo)
+                    <div class="h-auto max-w-8xl mx-5 rounded-md bg-green-200 mb-5">
+                        <div class="flex ml-1">
+                            <input id="acd-check{{ $todo->id }}" class="acd-check" type="checkbox">
+                            <img class="object-scale-down h-5 w-5" src="../../../img/task.svg">
+                            <p class="ml-1">{{ $todo->title }}</p>
+                        </div>
+                        <div class="acd-content">
+                            <div class="flex">
+                                <img class="object-scale-down h-5 w-5" src="../../../img/date.svg">
+                                <p class="ml-1">{{ $todo->deadline }}</p>
+                            </div>
+                            <div class="flex">
+                                <img class="object-scale-down h-5 w-5" src="../../../img/propose.svg">
+                                <p class="ml-1">{{ $todo->submit_place }}</p>
+                            </div>
+                            <div class="flex">
+                                <img class="object-scale-down h-5 w-5" src="../../../img/tags.svg">
+                                <p class="ml-1">{{ $todo->subject_id }}</p>
+                            </div>
+                            <div class="flex">
+                                <img class="object-scale-down h-5 w-5" src="../../../img/memo.svg">
+                                <p class="ml-1">{{ $todo->description }}</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="acd-content">
-                        <div class="flex">
-                            <img class="object-scale-down h-5 w-5" src="../../../img/date.svg">
-                            <p class="ml-1">{{ $todo->deadline }}</p>
-                        </div>
-                        <div class="flex">
-                            <img class="object-scale-down h-5 w-5" src="../../../img/propose.svg">
-                            <p class="ml-1">{{ $todo->submit_place }}</p>
-                        </div>
-                        <div class="flex">
-                            <img class="object-scale-down h-5 w-5" src="../../../img/tags.svg">
-                            <p class="ml-1">{{ $todo->subject_id }}</p>
-                        </div>
-                        <div class="flex">
-                            <img class="object-scale-down h-5 w-5" src="../../../img/memo.svg">
-                            <p class="ml-1">{{ $todo->description }}</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             @endforeach
         </div>
         <button onclick="location.href='./createTodo'" class="fixed z-99999 bottom-10 right-10 py-5 px-5 bg-green-800 rounded-full">
