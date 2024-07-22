@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +25,4 @@ Route::View('/signUp', 'signUp.signUp');
 Route::view('/signIn', 'signIn.signIn');
 Route::view('/loading', 'loading');
 
-Route::resource('users', UserController::class) -> only(['store', 'show', 'update', 'destroy']);
+Route::resource('users', UserController::class)->only(['store', 'show', 'update', 'destroy']);

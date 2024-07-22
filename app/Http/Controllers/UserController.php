@@ -25,6 +25,7 @@ class UserController extends Controller
 
         return redirect()->route('welcome');
     }
+
     /**
      * Update the specified resource in storage.
      */
