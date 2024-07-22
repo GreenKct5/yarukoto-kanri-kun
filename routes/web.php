@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::view('/home', 'home.home')->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/createTodo', function () {
     return view('createTodo.createTodo');
 });

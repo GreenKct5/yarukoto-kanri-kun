@@ -58,7 +58,7 @@ class TodoController extends Controller
     {
         $todo = Todo::findOrFail($id);
 
-        return view('todos.show', compact('todo'));
+        return view('home', compact('todo'));
     }
 
     // 課題の編集フォームを表示

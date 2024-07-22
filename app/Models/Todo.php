@@ -32,6 +32,7 @@ class Todo extends Model
         'id',
         'subject_id',
         'title',
+        'submit_place',
         'description',
         'deadline',
         'last_update_user',
