@@ -7,7 +7,7 @@
     <title>やること管理くん</title>
     <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap">
 </head>
-<body class="bg-gray-100">   
+<body class="bg-gray-100">
     <header class="fixed top-0 left-0 w-full bg-blue-100 shadow-md z-10">
         <div class="container mx-auto py-2 flex justify-between items-center">
         <div class="flex"><img class="ml-10" src="../../../img/icon.svg"></div>
@@ -53,7 +53,7 @@
                             <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/memo.svg"><p class="ml-1">メモ</p></div>
                         </div>
                     </div><br/>
-                </div>    
+                </div>
                     <main><div class="h-auto max-w-8xl mx-auto rounded-md bg-green-600 mx-10 my-5">
                     <b class="ml-1">科目名</b>
                     <div class="h-auto max-w-8xl mx-5 rounded-md bg-green-200">
@@ -107,7 +107,9 @@
                             <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/memo.svg"><p class="ml-1">メモ</p></div>
                     </div>
                 </div><br/>
-                <div class="fixed z-99999 bottom-10 right-10 py-5 px-5 bg-green-800 rounded-full"><img src="../../../img/add_button.svg"></div> 
+                <button onclick="location.href='./createTodo'" class="fixed z-99999 bottom-10 right-10 py-5 px-5 bg-green-800 rounded-full">
+                    <img src="../../../img/add_button.svg">
+                </button>
         </main>
     </div>
 </body>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CreateTodoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,10 @@ Route::get('/', function () {
 });
 
 Route::view('/home', 'home.home');
-Route::view('/createTodo', 'createTodo.createTodo');
+Route::get('/createTodo', function () {
+    return view('createTodo.createTodo');
+});
+Route::post('/createTodo', [CreateTodoController::class, 'store'])->name('todos.store');
 Route::view('/myPage', 'myPage.myPage');
 Route::view('/signUp', 'signUp.signUp');
 Route::view('/signIn', 'signIn.signIn');
