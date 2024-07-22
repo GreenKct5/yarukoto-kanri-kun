@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CreateTodoController;
+use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,11 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::view('/home', 'home.home');
+Route::view('/home', 'home.home')->name('home');
 Route::get('/createTodo', function () {
     return view('createTodo.createTodo');
 });
-Route::post('/createTodo', [CreateTodoController::class, 'store'])->name('todos.store');
+Route::post('/createTodo', [TodoController::class, 'store'])->name('todos.store');
 Route::view('/myPage', 'myPage.myPage');
 Route::View('/signUp', 'signUp.signUp');
 Route::view('/signIn', 'signIn.signIn');
