@@ -4,26 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
     public function store(Request $request)
     {
-        $params = new User();
+        $user = new User();
         // バリデーション
         $request->validate([
             'username' => 'required|max:255',
             'email' => 'required|email|max:255',
             'password' => 'required|min:8|max:255',
         ]);
-        $params->name = $request->username;
-        $params->email = $request->email;
-        $params->password = $request->password;
-        $params->salt = bin2hex(random_bytes(16));
-        $params->password = hash('sha256', $params->password . $params->salt);
-        $params->save();
+        $user->name = $request->username;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->salt = bin2hex(random_bytes(16));
+        $user->password = hash('sha256', $user->password . $user->salt);
+        $user->save();
 
-        return redirect()->route('welcome');
+        Auth::login($user);
+
+        return redirect()->route('home');
     }
 
     /**
