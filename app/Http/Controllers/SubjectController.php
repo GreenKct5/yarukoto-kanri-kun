@@ -34,7 +34,7 @@ class SubjectController extends Controller
             $group = Group::create([
                 'id' => Str::uuid(), // UUIDを生成
                 'name' => $request->input('group_name'),
-                'color' => Group::all()->pluck('color')->random(),
+                'color' => 'FF5733',
             ]);
         }
 
