@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Subject;
 use App\Models\Todo;
 use App\Models\User;
+use App\Models\Group;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class TodoController extends Controller
 {
@@ -27,6 +29,7 @@ class TodoController extends Controller
             'title' => 'required|string|max:255',
             'deadline' => 'required|date',
             'place' => 'required|string|max:255',
+            'group_name' => 'required|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -36,16 +39,23 @@ class TodoController extends Controller
                 ->withInput();
         }
 
+        if (!$group) {
+            $group = Group::create([
+                'id' => Str::uuid(), // UUIDを生成
+                'name' => $request->input('group_name'),
+            ]);
+        }
+
         $todo = new Todo([
             'subject_id' => $request->input('subject_id'),
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'deadline' => $request->input('deadline') . ' ' . $request->input('deadline_time'),
-            'submit_place' => $request->place,
+            'submit_place' => $request->input('place'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'last_update_user' => User::all()->pluck('id')->random(),
-            // 'last_update_user' => auth()->user()->id,
+            'group_id' => $group->id,
         ]);
 
         $todo->save();
@@ -76,7 +86,7 @@ class TodoController extends Controller
         $todo->title = $request->input('title');
         $todo->description = $request->input('description');
         $todo->deadline = $request->input('deadline') . ' ' . $request->input('deadline_time');
-        $todo->subject_place = $request->place;
+        $todo->submit_place = $request->input('place');
         $todo->updated_at = Carbon::now();
         $todo->last_update_user = User::all()->pluck('id')->random();
         // $todo->last_update_user = auth()->user()->id;
@@ -89,8 +99,9 @@ class TodoController extends Controller
     public function create()
     {
         $subjects = Subject::all();
+        $groups = Group::all();
 
-        return view('createTodo.createTodo', compact('subjects'));
+        return view('createTodo.createTodo', compact('subjects', 'groups'));
     }
 
     // 課題を削除

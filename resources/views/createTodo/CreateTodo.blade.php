@@ -56,7 +56,14 @@
                 <label class="form-label my-2 mr-1" for="tags">
                     <img class="h-16 w-16" src="../../../img/tags.svg"/>
                 </label>
-                <input class="form-input border-gray-500 shadow-none mx-3" id="tags" type="text" name="tags" placeholder="タグ" value="{{ old('tags') }}">
+                <select class="form-input border-gray-500 shadow-none mx-3" id="group_id" name="group_id">
+                    <option value="">タグを選択</option>
+                    @foreach ($groups as $group)
+                        <option value="{{ $group->id }}">
+                            {{ $group->name }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
             <div class="flex mb-4">
                 <label class="form-label my-2 mr-1" for="description">

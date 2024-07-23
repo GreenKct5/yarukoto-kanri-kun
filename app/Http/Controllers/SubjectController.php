@@ -33,11 +33,11 @@ class SubjectController extends Controller
         if (!$group) {
             $group = Group::create([
                 'id' => Str::uuid(), // UUIDを生成
-                'name' => $request->input('name'),
+                'name' => $request->input('group_name'),
                 'color' => Group::all()->pluck('color')->random(),
             ]);
-            $group->save();
         }
+
 
         $subject = new Subject([
             'id' => Str::uuid(), // UUIDを生成
