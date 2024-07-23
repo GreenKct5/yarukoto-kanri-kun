@@ -21,60 +21,42 @@ class TodoController extends Controller
 
     // 課題を保存
     public function store(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'subject_id' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'deadline' => 'required|date',
-            'place' => 'required|string|max:255',
-        ]);
+{
+    $validator = Validator::make($request->all(), [
+        'subject_id' => 'required|exists:subjects,id',
+        'title' => 'required|string|max:255',
+        'deadline' => 'required|date',
+        'place' => 'required|string|max:255',
+    ]);
 
-        if ($validator->fails()) {
-            return redirect()
-                ->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        $todo = new Todo([
-            // 'subject_id' => $request->input('subject_id'),
-            'subject_id' => Subject::all()->pluck('id')->random(),
-            'title' => $request->input('title'),
-            'description' => $request->input('description'),
-            'deadline' => $request->input('deadline') . ' ' . $request->input('deadline_time'),
-            'submit_place' => $request->place,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            'last_update_user' => User::all()->pluck('id')->random(),
-            // 'last_update_user' => auth()->user()->id,
-        ]);
-
-        $todo->save();
-
-        return redirect()->route('home')->with('success', '課題が作成されました。');
+    if ($validator->fails()) {
+        return redirect()
+            ->back()
+            ->withErrors($validator)
+            ->withInput();
     }
 
-    // 課題の詳細を表示
-    public function show($id)
-    {
-        $todo = Todo::findOrFail($id);
+    $todo = new Todo([
+        'subject_id' => $request->input('subject_id'),
+        'title' => $request->input('title'),
+        'description' => $request->input('description'),
+        'deadline' => $request->input('deadline') . ' ' . $request->input('deadline_time'),
+        'submit_place' => $request->place,
+        'created_at' => Carbon::now(),
+        'updated_at' => Carbon::now(),
+        'last_update_user' => User::all()->pluck('id')->random(),
+        // 'last_update_user' => auth()->user()->id,
+    ]);
 
-        return view('home', compact('todo'));
-    }
+    $todo->save();
 
-    // 課題の編集フォームを表示
-    public function edit($id)
-    {
-        $todo = Todo::findOrFail($id);
-
-        return view('todos.edit', compact('todo'));
-    }
-
-    // 課題を更新
+    return redirect()->route('home')->with('success', '課題が作成されました。');
+}
+    // 更新
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'subject_id' => 'required|string|max:255',
+            'subject_id' => 'required|exists:subjects,id', // Ensure subject exists
             'title' => 'required|string|max:255',
             'submit_place' => 'required|string|max:255',
             'deadline' => 'required|date',
@@ -101,6 +83,13 @@ class TodoController extends Controller
         $todo->save();
 
         return redirect()->route('home')->with('success', '課題が更新されました。');
+    }
+
+    public function create()
+    {
+        $subjects = Subject::all();
+
+        return view('createTodo.createTodo', compact('subjects'));
     }
 
     // 課題を削除

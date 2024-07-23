@@ -16,7 +16,7 @@
                     <div class="flex items-center justify-center">
                         <div @click="showModal = true" class="flex items-center mx-2">
                             <img class="object-scale-down" src="../../../img/book.svg" alt="Book">
-                            <p class="ml-2">科目の追加</p> <!-- 左に余白を追加 -->
+                            <p class="ml-2">科目の追加</p>
                         </div>
                         <img class="object-scale-down h-16 w-16 mx-6" src="../../../img/yakan1.svg" alt="Yakan">
                     </div>

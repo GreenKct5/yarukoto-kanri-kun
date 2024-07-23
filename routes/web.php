@@ -23,9 +23,7 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::post('/home', [SubjectController::class, 'store'])->name('home.store');
-Route::get('/createTodo', function () {
-    return view('createTodo.createTodo');
-});
+Route::get('/createTodo', [TodoController::class, 'create'])->name('todos.create');
 Route::post('/createTodo', [TodoController::class, 'store'])->name('todos.store');
 Route::view('/myPage', 'myPage.myPage');
 Route::View('/signUp', 'signUp.signUp');
