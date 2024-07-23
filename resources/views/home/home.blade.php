@@ -76,7 +76,7 @@
                 <form action="{{ route('home.store') }}" method="POST">
                     @csrf
                     <input class="form-input border border-gray-300 rounded p-2 w-full my-2" id="name" type="text" name="name" placeholder="教科名" value="{{ old('name') }}"/>
-                    <input class="form-input border border-gray-300 rounded p-2 w-full my-2" id="group_id" type="text" name="group_id" placeholder="グループID" value="{{ old('group_id') }}"/>
+                    <input class="form-input border border-gray-300 rounded p-2 w-full my-2" id="group_name" type="text" name="group_name" placeholder="グループ名" value="{{ old('group_name') }}"/>
                     <input class="bg-gray-500 text-white rounded p-2 w-full mt-4 hover:bg-gray-600 focus:outline-none" type="submit" value="追加"/>
                 </form>
             </div>
