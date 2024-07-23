@@ -29,7 +29,7 @@ Route::view('/myPage', 'myPage.myPage');
 Route::View('/signUp', 'signUp.signUp');
 Route::view('/signIn', 'signIn.signIn');
 Route::view('/loading', 'loading');
-Route::get('/loading', [HomeController::class, 'loading'])->name('loading');
+Route::get('/loading', [HomeController::class, 'loading'])->name('loading.home');
 
 Route::resource('users', UserController::class)->only(['store', 'update', 'destroy']);
 Route::post('/signIn', [UserController::class, 'login'])->name('signIn');

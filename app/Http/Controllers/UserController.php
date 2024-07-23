@@ -26,7 +26,7 @@ class UserController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('loading');
+        return redirect()->route('loading.home');
     }
 
     public function login(Request $request)
@@ -48,7 +48,7 @@ class UserController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('loading');
+        return redirect()->route('loading.home');
     }
 
     /**
