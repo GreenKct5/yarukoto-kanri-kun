@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/createTodo', function () {
     return view('createTodo.createTodo');
 });
@@ -29,6 +29,7 @@ Route::view('/myPage', 'myPage.myPage');
 Route::View('/signUp', 'signUp.signUp');
 Route::view('/signIn', 'signIn.signIn');
 Route::view('/loading', 'loading');
+Route::get('/loading', [HomeController::class, 'loading'])->name('loading');
 
 Route::resource('users', UserController::class)->only(['store', 'update', 'destroy']);
 Route::post('/signIn', [UserController::class, 'login'])->name('signIn');
