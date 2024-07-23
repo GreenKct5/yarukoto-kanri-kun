@@ -26,7 +26,12 @@
     <main>
         <div class="h-auto max-w-8xl mx-auto rounded-md bg-green-600 mx-10 mt-24">
             @foreach($todos as $subjectId => $subjectTodos)
-                <b class="ml-1">{{ $subjectId }}</b>
+                @php
+                    // 教科名を取得、存在しない場合は 'Unknown' を使用
+                    $subject = $subjects->get($subjectId);
+                    $subjectName = $subject ? $subject->name : 'Unknown';
+                @endphp
+                <b class="ml-1">{{ $subjectName }}</b>
                 @foreach($subjectTodos as $todo)
                     <div class="h-auto max-w-8xl mx-5 rounded-md bg-green-200 mb-5">
                         <div class="flex ml-1">
