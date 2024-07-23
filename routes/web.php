@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 
 /*

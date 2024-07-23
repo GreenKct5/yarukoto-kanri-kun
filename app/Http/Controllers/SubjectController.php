@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Subject;
 use Illuminate\Support\Str;
 
 class SubjectController extends Controller
