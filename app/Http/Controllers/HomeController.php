@@ -20,6 +20,7 @@ class HomeController extends Controller
     public function home()
     {
         $todos = Todo::all()->groupBy('subject_id');
+
         return view('home.home', compact('todos'));
     }
 }
