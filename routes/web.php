@@ -22,14 +22,14 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::post('/home', [SubjectController::class, 'store'])->name('home.store');
-Route::get('/createTodo', [TodoController::class, 'create'])->name('todos.create');
-Route::post('/createTodo', [TodoController::class, 'store'])->name('todos.store');
+Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
+Route::post('/home', [SubjectController::class, 'store'])->middleware('auth')->name('home.store');
+Route::get('/createTodo', [TodoController::class, 'create'])->middleware('auth')->name('todos.create');
+Route::post('/createTodo', [TodoController::class, 'store'])->middleware('auth')->name('todos.store');
 
-Route::get('/api/groups/{group}/subjects', [GroupController::class, 'getSubjects']);
+Route::get('/api/groups/{group}/subjects', [GroupController::class, 'getSubjects'])->middleware('auth');
 
-Route::view('/myPage', 'myPage.myPage');
+Route::view('/myPage', 'myPage.myPage')->middleware('auth');
 Route::View('/signUp', 'signUp.signUp');
 Route::view('/signIn', 'signIn.signIn');
 Route::view('/loading', 'loading');
