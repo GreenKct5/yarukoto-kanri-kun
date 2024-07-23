@@ -16,16 +16,25 @@
         <form action="{{ route('todos.store') }}" method="POST">
             @csrf
             <div class="flex mb-4">
+                <label class="form-label my-2 mr-1" for="tags">
+                    <img class="h-16 w-16" src="../../../img/tags.svg"/>
+                </label>
+                <select class="form-input border-gray-500 shadow-none mx-3" id="group_id" name="group_id" onchange="fetchSubjects(this.value)">
+                    <option value="">グループを選択</option>
+                    @foreach ($groups as $group)
+                        <option value="{{ $group->id }}">
+                            {{ $group->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="flex mb-4">
                 <label class="form-label my-2 mr-1" for="subject_name">
                     <img class="h-16 w-16" src="../../../img/book.svg"/>
                 </label>
                 <select class="form-input border-gray-500 shadow-none mx-3" id="subject_id" name="subject_id">
                     <option value="">科目を選択</option>
-                    @foreach ($subjects as $subject)
-                        <option value="{{ $subject->id }}">
-                            {{ $subject->name }}
-                        </option>
-                    @endforeach
+                    <!-- 科目のオプションはここに動的に追加されます -->
                 </select>
             </div>
             <div class="flex mb-4">
@@ -53,19 +62,6 @@
                 </select>
             </div>
             <div class="flex mb-4">
-                <label class="form-label my-2 mr-1" for="tags">
-                    <img class="h-16 w-16" src="../../../img/tags.svg"/>
-                </label>
-                <select class="form-input border-gray-500 shadow-none mx-3" id="group_id" name="group_id">
-                    <option value="">タグを選択</option>
-                    @foreach ($groups as $group)
-                        <option value="{{ $group->id }}">
-                            {{ $group->name }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="flex mb-4">
                 <label class="form-label my-2 mr-1" for="description">
                     <img class="h-16 w-16" src="../../../img/memo.svg"/>
                 </label>
@@ -79,5 +75,24 @@
             </div>
         </form>
     </div>
+    <script>
+        function fetchSubjects(groupId) {
+            if (groupId) {
+                fetch(`/api/groups/${groupId}/subjects`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const subjectSelect = document.getElementById('subject_id');
+                        subjectSelect.innerHTML = '<option value="">科目を選択</option>';
+                        data.forEach(subject => {
+                            const option = document.createElement('option');
+                            option.value = subject.id;
+                            option.textContent = subject.name;
+                            subjectSelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        }
+    </script>
 </body>
 </html>
