@@ -21,7 +21,6 @@ class TodoController extends Controller
         return view('todos.index', compact('todos'));
     }
 
-    // 課題を保存
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -29,7 +28,7 @@ class TodoController extends Controller
             'title' => 'required|string|max:255',
             'deadline' => 'required|date',
             'place' => 'required|string|max:255',
-            'group_name' => 'required|string|max:255',
+            'group_name' => 'nullable|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -39,12 +38,20 @@ class TodoController extends Controller
                 ->withInput();
         }
 
-        if (!$group) {
+        // グループ名からグループを取得
+        $group = Group::where('name', $request->input('group_name'))->first();
+
+        // グループが存在しない場合、新しいグループを作成
+        if (!$group && $request->has('group_name')) {
             $group = Group::create([
                 'id' => Str::uuid(), // UUIDを生成
                 'name' => $request->input('group_name'),
+                'color' => Group::all()->pluck('color')->random(), // 必要に応じて適切な色を設定
             ]);
         }
+
+        // グループが存在しない場合、空の ID を設定
+        $groupId = $group ? $group->id : null;
 
         $todo = new Todo([
             'subject_id' => $request->input('subject_id'),
@@ -55,13 +62,14 @@ class TodoController extends Controller
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'last_update_user' => User::all()->pluck('id')->random(),
-            'group_id' => $group->id,
+            'group_id' => $groupId,
         ]);
 
         $todo->save();
 
         return redirect()->route('home')->with('success', '課題が作成されました。');
     }
+
 
     // 更新
     public function update(Request $request, $id)
