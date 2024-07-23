@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
 use App\Models\Subject;
 use App\Models\Todo;
 use App\Models\User;
-use App\Models\Group;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -42,7 +42,7 @@ class TodoController extends Controller
         $group = Group::where('name', $request->input('group_name'))->first();
 
         // グループが存在しない場合、新しいグループを作成
-        if (!$group && $request->has('group_name')) {
+        if (! $group && $request->has('group_name')) {
             $group = Group::create([
                 'id' => Str::uuid(), // UUIDを生成
                 'name' => $request->input('group_name'),
@@ -69,7 +69,6 @@ class TodoController extends Controller
 
         return redirect()->route('home')->with('success', '課題が作成されました。');
     }
-
 
     // 更新
     public function update(Request $request, $id)

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Subject;
 use App\Models\Group;
+use App\Models\Subject;
 use App\Models\Todo;
 
 class HomeController extends Controller
@@ -17,5 +17,4 @@ class HomeController extends Controller
 
         return view('home.home', compact('todos', 'subjects', 'groups'));
     }
-
 }
