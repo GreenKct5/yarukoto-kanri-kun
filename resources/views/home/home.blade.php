@@ -1,83 +1,74 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  @vite('resources/css/app.css')
-  <title>やること管理くん</title>
-  <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.3/cdn.min.js" defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @vite('resources/css/app.css')
+    <title>やること管理くん</title>
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap">
 </head>
-<body class="bg-gray-100" x-data="{ showModal: false }">
-  <header class="fixed top-0 left-0 w-full bg-blue-100 shadow-md z-10">
-    <div class="container mx-auto py-2 flex justify-between items-center">
-      <div class="flex">
-        <img class="ml-10" src="../../../img/icon.svg">
-      </div>
-      <nav>
-        <div class="flex">
-          <button @click="showModal = true">open modal</button>
-          <img class="object-scale-down h-16 w-16 mx-6" src="../../../img/yakan1.svg">
+<body class="bg-gray-100">
+    <header class="fixed top-0 left-0 w-full bg-blue-100 shadow-md z-10">
+        <div class="container mx-auto py-2 flex justify-between items-center">
+            <div class="flex"><img class="ml-10" src="../../../img/icon.svg"></div>
+            <nav>
+                <div class="flex">
+                    <button @click="showModal = true">open modal</button>
+                    <img class="object-scale-down h-16 w-16 mx-6" src="../../../img/yakan1.svg">
+                </div>
+            </nav>
         </div>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <div class="h-auto max-w-8xl mx-auto rounded-md bg-green-600 mx-10 mt-24">
-      <b class="ml-1">科目名</b>
-      <div class="h-auto max-w-8xl mx-5 rounded-md bg-green-200">
-        <div class="flex ml-1">
-          <input id="acd-check1" class="acd-check" type="checkbox">
-          <img class="object-scale-down h-5 w-5" src="../../../img/task.svg">
-          <p class="ml-1">課題内容
-            <input type="text" class="ml-3 mt-1 rounded-md" name="title" size="15">
-          </p>
+    </header>
+    <main>
+        <div class="h-auto max-w-8xl mx-auto rounded-md bg-green-600 mx-10 mt-24">
+            @foreach($todos as $subjectId => $subjectTodos)
+                <b class="ml-1">{{ $subjectId }}</b>
+                @foreach($subjectTodos as $todo)
+                    <div class="h-auto max-w-8xl mx-5 rounded-md bg-green-200 mb-5">
+                        <div class="flex ml-1">
+                            <input id="acd-check{{ $todo->id }}" class="acd-check" type="checkbox">
+                            <img class="object-scale-down h-5 w-5" src="../../../img/task.svg">
+                            <p class="ml-1">{{ $todo->title }}</p>
+                        </div>
+                        <div class="acd-content">
+                            <div class="flex">
+                                <img class="object-scale-down h-5 w-5" src="../../../img/date.svg">
+                                <p class="ml-1">{{ $todo->deadline }}</p>
+                            </div>
+                            <div class="flex">
+                                <img class="object-scale-down h-5 w-5" src="../../../img/propose.svg">
+                                <p class="ml-1">{{ $todo->submit_place }}</p>
+                            </div>
+                            <div class="flex">
+                                <img class="object-scale-down h-5 w-5" src="../../../img/tags.svg">
+                                <p class="ml-1">{{ $todo->subject_id }}</p>
+                            </div>
+                            <div class="flex">
+                                <img class="object-scale-down h-5 w-5" src="../../../img/memo.svg">
+                                <p class="ml-1">{{ $todo->description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @endforeach
         </div>
-        <div class="acd-content">
-          <div class="flex">
-            <img class="object-scale-down h-5 w-5" src="../../../img/date.svg">
-            <p class="ml-1">日付，時間</p>
-          </div>
-          <div class="flex">
-            <img class="object-scale-down h-5 w-5" src="../../../img/propose.svg">
-            <p class="ml-1">提出先
-              <select name="提出先" class="rounded-md">
-                <option value="Webclass">Webclass</option>
-                <option value="Teams">Teams</option>
-                <option value="授業時">授業時</option>
-              </select>
-            </p>
-          </div>
-          <div class="flex">
-            <img class="object-scale-down h-5 w-5" src="../../../img/tags.svg">
-            <p class="ml-1">タグ</p>
-          </div>
-          <div class="flex">
-            <img class="object-scale-down h-5 w-5" src="../../../img/memo.svg">
-            <p class="ml-1">メモ</p>
-          </div>
+        <button onclick="location.href='./createTodo'" class="fixed z-99999 bottom-10 right-10 py-5 px-5 bg-green-800 rounded-full">
+            <img src="../../../img/add_button.svg">
+        </button>
+    </main>
+    <!-- モーダル -->
+    <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" x-show="showModal" x-transition>
+        <div class="bg-white p-4 rounded" @click.away="showModal = false">
+        <button @click="showModal = false">
+            <img alt="閉じる" src="../../../img/add_button.svg" class="rotate-45 invert">
+        </button>
+        <div class="mt-4 text-center">
+            <p class="text-xl font-semibold mb-4">授業科目を追加する</p>
+            <input class="form-input border border-gray-300 rounded p-2 w-full my-2" id="task" type="text" name="task" placeholder="教科名" value="{{ old('task') }}">
+            <input class="form-input border border-gray-300 rounded p-2 w-full my-2" id="tag" type="text" name="tag" placeholder="タグ" value="{{ old('tag') }}">
+            <button class="bg-gray-500 text-white rounded p-2 w-full mt-4 hover:bg-gray-600 focus:outline-none">追加</button>
         </div>
-      </div>
-      <br />
+        </div>
     </div>
-    <button onclick="location.href='./createTodo'" class="fixed z-99999 bottom-10 right-10 py-5 px-5 bg-green-800 rounded-full">
-      <img src="../../../img/add_button.svg">
-    </button>
-  </main>
-
-  <!-- モーダル -->
-  <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" x-show="showModal" x-transition>
-    <div class="bg-white p-4 rounded" @click.away="showModal = false">
-      <button @click="showModal = false">
-        <img alt="閉じる" src="../../../img/add_button.svg" class="rotate-45 invert">
-      </button>
-      <div class="mt-4 text-center">
-        <p class="text-xl font-semibold mb-4">授業科目を追加する</p>
-        <input class="form-input border border-gray-300 rounded p-2 w-full my-2" id="task" type="text" name="task" placeholder="教科名" value="{{ old('task') }}">
-        <input class="form-input border border-gray-300 rounded p-2 w-full my-2" id="tag" type="text" name="tag" placeholder="タグ" value="{{ old('tag') }}">
-        <button class="bg-gray-500 text-white rounded p-2 w-full mt-4 hover:bg-gray-600 focus:outline-none">追加</button>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
