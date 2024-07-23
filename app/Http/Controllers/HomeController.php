@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subject;
+use App\Models\Group;
 use App\Models\Todo;
 
 class HomeController extends Controller
 {
+    // 課題のリストを表示
     public function index()
     {
-        // すべてのTodosをsubject_idでグループ化し、関連するSubjectを取得
-        $todos = Todo::with('subject')->get()->groupBy('subject_id');
-        $subjects = Subject::all()->keyBy('id'); // 教科をIDでキー付けして取得
+        $todos = Todo::with('group', 'subject')->get();
+        $subjects = Subject::all()->keyBy('id'); // SubjectをIDでキー付けして取得
+        $groups = Group::with('subjects')->get()->keyBy('id'); // グループと関連するsubjectsを取得
 
-        return view('home.home', compact('todos', 'subjects'));
+        return view('home.home', compact('todos', 'subjects', 'groups'));
     }
+
 }
