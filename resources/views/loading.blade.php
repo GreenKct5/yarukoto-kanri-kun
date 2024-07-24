@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
-    <title>loading</title>
+    <title>Loading</title>
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 
@@ -19,14 +19,9 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var loading = document.getElementById('loading');
-            var content = document.getElementById('content');
-            setTimeout(function () {
-                loading.style.display = 'none';
-                content.classList.remove('hidden');
-            }, 3000);
-        });
+        setTimeout(function() {
+            window.location.href = "{{ route('home') }}";
+        }, 2000);
     </script>
 </body>
 </html>
