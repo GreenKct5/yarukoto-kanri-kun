@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
+Route::get('/home', [HomeController::class, 'home'])->middleware('auth')->name('home');
 Route::post('/home', [SubjectController::class, 'store'])->middleware('auth')->name('home.store');
 Route::get('/createTodo', [TodoController::class, 'create'])->middleware('auth')->name('todos.create');
 Route::post('/createTodo', [TodoController::class, 'store'])->middleware('auth')->name('todos.store');
