@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UsersGroup;
-use App\Models\User;
-use App\Models\Todo;
 use App\Models\Group;
 use App\Models\Subject;
+use App\Models\Todo;
+use App\Models\UsersGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

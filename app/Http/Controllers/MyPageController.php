@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UsersGroup;
-use App\Models\User;
 use App\Models\Group;
+use App\Models\UsersGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +20,7 @@ class MyPageController extends Controller
 
         return view('mypage.mypage', compact('usersGroups', 'user', 'allGroups'));
     }
-    
+
     public function update(Request $request)
     {
         $user = Auth::user();
