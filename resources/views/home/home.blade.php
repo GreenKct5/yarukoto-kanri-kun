@@ -40,10 +40,10 @@
                     $group = $subject && $subject->group ? $subject->group->name : 'Unknown';
                     $subjectName = $subject ? $subject->name : 'Unknown';
                 @endphp
-                <div class="mb-6 p-2 bg-green-600 rounded-md shadow">
+                <div class="mb-6 p-2 bg-blue-200 rounded-md shadow">
                     <b class="ml-1 text-lg">{{ $subjectName }}</b>
                     @foreach($subjectTodos as $todo)
-                        <div class="h-auto max-w-8xl mx-5 my-2 bg-green-200 rounded-md">
+                        <div class="h-auto max-w-8xl mx-5 my-2 bg-white rounded-md">
                             <div class="flex ml-1"><input id="acd-{{ $todo->id }}" class="acd-check" type="checkbox"><img class="object-scale-down h-5 w-5" src="../../../img/task.svg">
                             <p class="ml-1">{{ $todo->title }}</p></div>
                             <div class="acd-content">
@@ -57,7 +57,7 @@
                 </div>
             @endforeach
         </div>
-        <button onclick="location.href='./createTodo'" class="fixed z-50 bottom-10 right-10 py-5 px-5 bg-green-800 rounded-full">
+        <button onclick="location.href='./createTodo'" class="fixed z-50 bottom-10 right-10 py-5 px-5 bg-blue-500 rounded-full">
             <img src="../../../img/add_button.svg">
         </button>
     </main>
