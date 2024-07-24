@@ -7,7 +7,7 @@
 </head>
 <body class="flex items-center justify-center min-h-screen w-full">
     <div class="container" id="menu">
-        @if ($errors->any() && ($errors->has('subject_id') || $errors->has('title') || $errors->has('deadline') || $errors->has('place')))
+        @if ($errors->any() && ($errors->has('subject_name') || $errors->has('title') || $errors->has('deadline') || $errors->has('place')))
             <div class="absolute left-3/4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded -mx-1.5" role="alert">
                 <strong class="font-bold">記入していない箇所があります</strong>
             </div>
@@ -16,10 +16,17 @@
         <form action="{{ route('todos.store') }}" method="POST">
             @csrf
             <div class="flex mb-4">
-                <label class="form-label my-2 mr-1" for="subject_id">
+                <label class="form-label my-2 mr-1" for="subject_name">
                     <img class="h-16 w-16" src="../../../img/book.svg"/>
                 </label>
-                <input class="form-input border-gray-500 shadow-none mx-3" id="subject_id" type="text" name="subject_id" placeholder="科目名" value="{{ old('subject_id') }}">
+                <select class="form-input border-gray-500 shadow-none mx-3" id="subject_id" name="subject_id">
+                    <option value="">科目を選択</option>
+                    @foreach ($subjects as $subject)
+                        <option value="{{ $subject->id }}">
+                            {{ $subject->name }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
             <div class="flex mb-4">
                 <label class="form-label my-2 mr-1" for="title">
