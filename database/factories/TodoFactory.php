@@ -18,6 +18,7 @@ class TodoFactory extends Factory
             'subject_id' => Subject::All()->pluck('id')->random(),
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
+            'submit_place' => $this->faker->sentence,
             'deadline' => $this->faker->dateTimeBetween('now', '+1 year'),
             'created_at' => now(),
             'updated_at' => now(),
