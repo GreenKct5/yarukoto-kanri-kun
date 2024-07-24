@@ -38,6 +38,11 @@ class Todo extends Model
         'last_update_user',
     ];
 
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
+
     public function subject()
     {
         return $this->belongsTo(Subject::class);
