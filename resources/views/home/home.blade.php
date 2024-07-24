@@ -6,6 +6,11 @@
     @vite('resources/css/app.css')
     <title>やること管理くん</title>
     <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap">
+    <style>
+        input[type="checkbox"]:checked ~ .accordion-content {
+            max-height: 1000px;
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2" defer></script>
 </head>
 <body class="bg-gray-100" x-data="{ showModal: false }">
@@ -23,44 +28,36 @@
             </nav>
         </div>
     </header>
-    <main>
-        <div class="h-auto max-w-8xl mx-auto rounded-md bg-green-600 mx-10 mt-24">
-            @foreach($todos as $todo)
+    <main class="py-24">
+        <div class="container mx-auto px-4">
+            @php
+                $todosBySubject = $todos->groupBy('subject_id');
+            @endphp
+
+            @foreach($todosBySubject as $subjectId => $subjectTodos)
                 @php
-                    $subject = $subjects->get($todo->subject_id);
-                    $group = $groups->get($todo->group_id);
+                    $subject = $subjects->get($subjectId);
+                    $group = $subject && $subject->group ? $subject->group->name : 'Unknown';
                     $subjectName = $subject ? $subject->name : 'Unknown';
-                    $groupName = $subject && $subject->group ? $subject->group->name : 'Unknown';
                 @endphp
-                <b class="ml-1">{{ $subjectName }}</b>
-                <div class="h-auto max-w-8xl mx-5 rounded-md bg-green-200 mb-5">
-                    <div class="flex ml-1">
-                        <input id="acd-check{{ $todo->id }}" class="acd-check" type="checkbox">
-                        <img class="object-scale-down h-5 w-5" src="../../../img/task.svg">
-                        <p class="ml-1">{{ $todo->title }}</p>
-                    </div>
-                    <div class="acd-content">
-                        <div class="flex">
-                            <img class="object-scale-down h-5 w-5" src="../../../img/date.svg">
-                            <p class="ml-1">{{ $todo->deadline }}</p>
+                <div class="mb-6 p-2 bg-blue-200 rounded-md shadow">
+                    <b class="ml-1 text-lg">{{ $subjectName }}</b>
+                    @foreach($subjectTodos as $todo)
+                        <div class="h-auto max-w-8xl mx-5 my-2 bg-white rounded-md">
+                            <div class="flex ml-1"><input id="acd-{{ $todo->id }}" class="acd-check" type="checkbox"><img class="object-scale-down h-5 w-5" src="../../../img/task.svg">
+                            <p class="ml-1">{{ $todo->title }}</p></div>
+                            <div class="acd-content">
+                                <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/date.svg"><p class="ml-1">{{ $todo->deadline }}</p></div>
+                                <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/propose.svg"><p class="ml-1">{{ $todo->submit_place }}</p></div>
+                                <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/tags.svg"><p class="ml-1">{{ $group }}</p></div>
+                                <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/memo.svg"><p class="ml-1">{{ $todo->description }}</p></div>
+                            </div>
                         </div>
-                        <div class="flex">
-                            <img class="object-scale-down h-5 w-5" src="../../../img/propose.svg">
-                            <p class="ml-1">{{ $todo->submit_place }}</p>
-                        </div>
-                        <div class="flex">
-                            <img class="object-scale-down h-5 w-5" src="../../../img/tags.svg">
-                            <p class="ml-1">{{ $groupName }}</p>
-                        </div>
-                        <div class="flex">
-                            <img class="object-scale-down h-5 w-5" src="../../../img/memo.svg">
-                            <p class="ml-1">{{ $todo->description }}</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             @endforeach
         </div>
-        <button onclick="location.href='./createTodo'" class="fixed z-99999 bottom-10 right-10 py-5 px-5 bg-green-800 rounded-full">
+        <button onclick="location.href='./createTodo'" class="fixed z-50 bottom-10 right-10 py-5 px-5 bg-blue-500 rounded-full">
             <img src="../../../img/add_button.svg">
         </button>
     </main>
