@@ -6,6 +6,11 @@
     @vite('resources/css/app.css')
     <title>やること管理くん</title>
     <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap">
+    <style>
+        input[type="checkbox"]:checked ~ .accordion-content {
+            max-height: 1000px;
+        }
+    </style>     
 </head>
 <body class="bg-gray-100">   
     <header class="fixed top-0 left-0 w-full bg-blue-100 shadow-md z-10">
@@ -19,20 +24,20 @@
             </nav>
         </div>
     </header>
-        <main><div class="h-auto max-w-8xl mx-auto rounded-md bg-green-600 mx-10 mt-24">
+        <main><div class="h-auto max-w-8xl mx-6 rounded-md bg-green-600 mx-10 mt-24">
                     <b class="ml-1">科目名</b>
                     <div class="h-auto max-w-8xl mx-5 rounded-md bg-green-200">
-                            <div class="flex ml-1"><input id="acd-check1" class="acd-check" type="checkbox"><img class="object-scale-down h-5 w-5" src="../../../img/task.svg">
+                            <div class="flex ml-1"><input id="acd-1" class="acd-check" type="checkbox"><img class="object-scale-down h-5 w-5" src="../../../img/task.svg">
                             <p class="ml-1">課題内容<input type="text" class="ml-3 mt-1 rounded-md" name="title" size="15"></input></p></div>
                             <div class="acd-content">
-                            <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/date.svg"><p class="ml-1">日付，時間</p></div>
-                            <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/propose.svg"><p class="ml-1">提出先
-                                <select name="提出先" class="rounded-md">
-                                <option value="Webclass">Webclass</option>
-                                <option value="Teams">Teams</option>
-                                <option value="授業時">授業時</option>
-                                </select>
-                            </p></div>
+                                <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/date.svg"><p class="ml-1">日付，時間</p></div>
+                                <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/propose.svg"><p class="ml-1">提出先
+                                    <select name="提出先" class="rounded-md">
+                                    <option value="Webclass">Webclass</option>
+                                    <option value="Teams">Teams</option>
+                                    <option value="授業時">授業時</option>
+                                    </select>
+                                </p></div>
                             <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/tags.svg"><p class="ml-1">タグ</p></div>
                             <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/memo.svg"><p class="ml-1">メモ</p></div>
                         </div>
@@ -54,7 +59,7 @@
                         </div>
                     </div><br/>
                 </div>    
-                    <main><div class="h-auto max-w-8xl mx-auto rounded-md bg-green-600 mx-10 my-5">
+                    <main><div class="h-auto max-w-8xl mx-6 rounded-md bg-green-600 mx-10 my-5">
                     <b class="ml-1">科目名</b>
                     <div class="h-auto max-w-8xl mx-5 rounded-md bg-green-200">
                     <div class="flex ml-1"><input id="acd-check1" class="acd-check" type="checkbox"><img class="object-scale-down h-5 w-5" src="../../../img/task.svg">
@@ -89,7 +94,7 @@
                         </div>
                     </div><br/>
                     </div>
-                    <div class="h-auto max-w-8xl mx-auto rounded-md bg-green-600 mx-10 my-5">
+                    <div class="h-auto max-w-8xl mx-6 rounded-md bg-green-600 mx-10 my-5">
                     <b>&nbsp科目名</b>
                     <div class="h-auto max-w-8xl mx-5 rounded-md bg-green-200">
                     <div class="flex ml-1"><input id="acd-check1" class="acd-check" type="checkbox"><img class="object-scale-down h-5 w-5" src="../../../img/task.svg">
