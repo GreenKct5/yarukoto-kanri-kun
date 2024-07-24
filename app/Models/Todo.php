@@ -32,10 +32,16 @@ class Todo extends Model
         'id',
         'subject_id',
         'title',
+        'submit_place',
         'description',
         'deadline',
         'last_update_user',
     ];
+
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
 
     public function subject()
     {

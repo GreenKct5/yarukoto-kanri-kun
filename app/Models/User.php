@@ -25,6 +25,7 @@ class User extends Authenticatable
 
         // newした時に自動的にuuidを設定する。
         $this->attributes['id'] = Uuid::uuid4()->toString();
+        $this->attributes['icon'] = '/img/default_profile_image.png';
     }
 
     use HasFactory, Notifiable;

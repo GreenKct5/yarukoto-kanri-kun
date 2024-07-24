@@ -16,6 +16,7 @@ return new class extends Migration
             $table->char('subject_id', 36);
             $table->string('title');
             $table->text('description')->nullable();
+            $table->text('submit_place');
             $table->timestamp('deadline');
             $table->timestamps(0);
             $table->char('last_update_user', 36);
