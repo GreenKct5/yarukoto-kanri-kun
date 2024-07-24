@@ -20,6 +20,31 @@
             </nav>
         </div>
     </header>
+    <main class="py-24">
+    <p>ユーザー名: {{ $user->name }}</p>
+    <p>メールアドレス: {{ $user->email }}</p>
+    <p>画像: {{ $user->icon }}</p>
+        <section>
+                <h2 class="text-xl font-semibold mb-2">すべてのグループ</h2>
+                <ul>
+                    @foreach($allGroups as $group)
+                        <li class="mb-2">
+                            <span class="font-bold">{{ $group->name }}</span>
+                        </li>
+                    @endforeach
+                </ul>
+            </section>
+            <section class="mb-8">
+                <h2 class="text-xl font-semibold mb-2">あなたが所属しているグループ</h2>
+                <ul>
+                    @foreach($usersGroups as $userGroup)
+                        <li class="mb-2">
+                            <span class="font-bold">{{ $userGroup->group->name }}</span>
+                        </li>
+                    @endforeach
+                </ul>
+            </section>
+    </main>
 </body>
 
 </html>

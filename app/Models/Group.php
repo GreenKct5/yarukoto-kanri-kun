@@ -43,4 +43,9 @@ class Group extends Model
     {
         return $this->hasMany(Subject::class, 'group_id');
     }
+    
+    public function usersGroups()
+    {
+        return $this->hasMany(UsersGroup::class);
+    }
 }

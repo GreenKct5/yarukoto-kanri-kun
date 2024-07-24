@@ -62,4 +62,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(TodoStatus::class);
     }
+
+    public function usersGroups()
+    {
+        return $this->hasMany(UsersGroup::class);
+    }
 }
