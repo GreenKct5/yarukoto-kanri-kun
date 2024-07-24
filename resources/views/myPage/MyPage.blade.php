@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 
-<body class="bg-gray-100" x-data="{ showModal: false }">
+<body class="bg-white" x-data="{ showModal: false }">
     <header class="fixed top-0 left-0 w-full bg-blue-100 shadow-md z-10">
         <div class="container mx-auto py-2 flex justify-between items-center">
             <div class="flex"><a href="../home/"><img class="ml-10" src="../../../img/back.svg" alt="Back"></a></div>
@@ -24,19 +24,23 @@
     </header>
     <main class="py-24">
         <div class="container mx-auto px-4">
-            <p>ユーザー名: {{ $user->name }}</p>
-            <p>メールアドレス: {{ $user->email }}</p>
-            <p>画像: {{ $user->icon }}</p>
+            <div class="flex">
+                <img src="{{ $user->icon }}" alt="" class="h-32 w-32 m-4 rounded-full bg-gray-400">
+                <div>
+                    <p class="text-3xl m-6">{{ $user->name }}</p>
+                    <p class="text-ml m-6">{{ $user->email }}</p>
+                </div>
+            </div>
 
             <section class="mb-8">
-                <h2 class="text-xl font-semibold mb-2">あなたが所属しているグループ</h2>
+                <h2 class="mb-2">あなたが所属しているグループ</h2>
                 <ul>
                     @foreach($usersGroups as $userGroup)
                         <li class="mb-2">
                             @if($userGroup->group)
-                                <span class="font-bold">{{ $userGroup->group->name }}</span>
+                                <span>{{ $userGroup->group->name }}</span>
                             @else
-                                <span class="font-bold">グループ情報がありません</span>
+                                <span>グループ情報がありません</span>
                             @endif
                         </li>
                     @endforeach
@@ -64,7 +68,7 @@
                             <input type="checkbox" name="group_ids[]" value="{{ $group->id }}"
                                 @if($user->groups->contains($group->id)) checked @endif
                                 class="form-checkbox h-5 w-5 text-blue-500">
-                            <span class="font-bold">{{ $group->name }}</span>
+                            <span>{{ $group->name }}</span>
                         </label>
                     </li>
                     @endforeach
