@@ -28,8 +28,6 @@
             <p>メールアドレス: {{ $user->email }}</p>
             <p>画像: {{ $user->icon }}</p>
 
-            <button @click="showModal = true" class="mt-4 py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600">グループを編集</button>
-
             <section class="mb-8">
                 <h2 class="text-xl font-semibold mb-2">あなたが所属しているグループ</h2>
                 <ul>
@@ -44,6 +42,7 @@
                     @endforeach
                 </ul>
             </section>
+            <button @click="showModal = true" class="mt-4 py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600">グループを編集</button>
         </div>
     </main>
 

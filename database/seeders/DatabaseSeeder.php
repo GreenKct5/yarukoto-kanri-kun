@@ -14,11 +14,11 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        User::factory()->count(50)->create();
-        Group::factory()->count(10)->create();
-        UsersGroup::factory()->count(100)->create();
-        Subject::factory()->count(10)->create();
-        Todo::factory()->count(20)->create();
-        TodoStatus::factory()->count(50)->create();
+        User::factory()->count(0)->create();
+        Group::factory()->count(0)->create();
+        UsersGroup::factory()->count(0)->create();
+        Subject::factory()->count(0)->create();
+        Todo::factory()->count(0)->create();
+        TodoStatus::factory()->count(0)->create();
     }
 }
