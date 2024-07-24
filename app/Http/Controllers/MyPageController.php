@@ -21,4 +21,15 @@ class MyPageController extends Controller
 
         return view('mypage.mypage', compact('usersGroups', 'user', 'allGroups'));
     }
+    public function update()
+    {
+        $user = Auth::user();
+        $usersGroups = UsersGroup::with(['user', 'group'])
+            ->where('user_id', $user->id)
+            ->get();
+
+        $allGroups = Group::all();
+
+        return view('mypage.mypage', compact('usersGroups', 'user', 'allGroups'));
+    }
 }

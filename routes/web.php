@@ -32,6 +32,7 @@ Route::get('/api/groups/{group}/subjects', [GroupController::class, 'getSubjects
 
 Route::view('/myPage', 'myPage.myPage')->middleware('auth');
 Route::get('/myPage', [MyPageController::class, 'index'])->middleware('auth')->name('mypage.index');
+Route::post('/myPage', [MyPageController::class, 'update'])->middleware('auth')->name('mypage.update');
 Route::View('/signUp', 'signUp.signUp');
 Route::view('/signIn', 'signIn.signIn');
 Route::view('/loading', 'loading');
