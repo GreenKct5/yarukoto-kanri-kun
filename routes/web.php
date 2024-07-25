@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::view('/home', 'home.home');
 Route::view('/createTodo', 'createTodo.createTodo');
+Route::view('/logOut', 'logOut.logOut');
 Route::view('/myPage', 'myPage.myPage');
 Route::view('/signUp', 'signUp.signUp');
 Route::view('/signIn', 'signIn.signIn');
