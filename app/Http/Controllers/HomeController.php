@@ -26,12 +26,12 @@ class HomeController extends Controller
         $user = Auth::user();
         $userGroupIds = UsersGroup::where('user_id', $user->id)->pluck('group_id')->toArray();
         $subjectIds = Subject::whereIn('group_id', $userGroupIds)->pluck('id')->toArray();
-        
+
         // Fetch todos associated with the user's subjects
         $todos = Todo::with(['subject', 'subject.group'])
             ->whereIn('subject_id', $subjectIds)
             ->get();
-    
+
         $subjects = Subject::all()->keyBy('id'); // SubjectをIDでキー付けして取得
         $groups = Group::with('subjects')->get()->keyBy('id'); // グループと関連するsubjectsを取得
 
