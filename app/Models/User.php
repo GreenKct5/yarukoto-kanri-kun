@@ -25,6 +25,7 @@ class User extends Authenticatable
 
         // newした時に自動的にuuidを設定する。
         $this->attributes['id'] = Uuid::uuid4()->toString();
+        $this->attributes['icon'] = '../../img/icon.svg';
     }
 
     use HasFactory, Notifiable;
@@ -60,5 +61,10 @@ class User extends Authenticatable
     public function todoStatuses()
     {
         return $this->hasMany(TodoStatus::class);
+    }
+
+    public function usersGroups()
+    {
+        return $this->hasMany(UsersGroup::class);
     }
 }
