@@ -26,8 +26,8 @@ Route::get('/', function () {
 Route::get('/home', [HomeController::class, 'home'])->middleware('auth')->name('home');
 Route::post('/home', [SubjectController::class, 'store'])->middleware('auth')->name('home.store');
 Route::get('/createTodo', [TodoController::class, 'create'])->middleware('auth')->name('todos.create');
+Route::post('/destroyTodo/{id}', [TodoController::class, 'destroy'])->name('todos.destroy')->middleware('auth');
 Route::post('/createTodo', [TodoController::class, 'store'])->middleware('auth')->name('todos.store');
-Route::delete('/todos/{todo}', [TodoController::class, 'destroy'])->middleware('auth')->name('todos.destroy');
 Route::get('/api/groups/{group}/subjects', [GroupController::class, 'getSubjects'])->middleware('auth');
 
 Route::view('/myPage', 'myPage.myPage')->middleware('auth');

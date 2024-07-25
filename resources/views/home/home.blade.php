@@ -48,9 +48,8 @@
                             <div class="flex ml-1"><input id="acd-{{ $todo->id }}" class="acd-check" type="checkbox"><img class="object-scale-down h-5 w-5" src="../../../img/task.svg">
                             <p class="ml-1">{{ $todo->title }}</p>
 
-                            <form action="{{ url('todos.destroy', $todo->id) }}" method="POST" class="ml-auto mr-4">
+                            <form action="{{ route('todos.destroy', ['id'=>$todo->id]) }}" method="POST" class="ml-auto mr-4">
                             @csrf
-                            @method('DELETE')
                             <div class="ml-auto">
                                 <button type="submit">
                                     <img class="object-scale-down h-5 w-5" src="../../../img/trash.svg">
