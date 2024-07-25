@@ -166,7 +166,7 @@
                         </div>
                     </div>
                 </div><br />
-                <div class="fixed z-99999 bottom-10 right-10 py-5 px-5 bg-green-800 rounded-full"><img
+                <div class="fixed z-99999 bottom-10 right-10 py-5 px-5 bg-green-800 rounded-full shadow-lg"><img
                         src="../../../img/add_button.svg"></div>
         </main>
         </div>
