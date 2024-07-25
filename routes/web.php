@@ -35,6 +35,8 @@ Route::get('/myPage', [MyPageController::class, 'index'])->middleware('auth')->n
 Route::post('/myPage', [MyPageController::class, 'update'])->middleware('auth')->name('mypage.update');
 Route::View('/signUp', 'signUp.signUp');
 Route::view('/signIn', 'signIn.signIn');
+
+Route::view('/logOut', 'logOut.logOut');
 Route::view('/loading', 'loading');
 Route::get('/loading', [HomeController::class, 'loading'])->name('loading.home');
 
