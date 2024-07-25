@@ -39,8 +39,18 @@ class Group extends Model
         return $this->belongsToMany(User::class, 'users_group', 'group_id', 'user_id');
     }
 
+    public function todos()
+    {
+        return $this->belongsToMany(Todo::class, 'group_todo');
+    }
+
     public function subjects()
     {
         return $this->hasMany(Subject::class, 'group_id');
+    }
+
+    public function usersGroups()
+    {
+        return $this->hasMany(UsersGroup::class);
     }
 }

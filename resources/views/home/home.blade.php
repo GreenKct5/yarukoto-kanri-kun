@@ -17,7 +17,7 @@
 <body class="bg-gray-100" x-data="{ showModal: false }">
     <header class="fixed top-0 left-0 w-full bg-blue-100 shadow-md z-10">
         <div class="container mx-auto py-2 flex justify-between items-center">
-            <div class="flex"><a href="../myPage/"><img class="ml-10" src="../../../img/icon.svg"></a></div>
+            <div class="flex"><a href="{{ route('mypage.index') }}"><img class="ml-10" src="../../../img/icon.svg"></a></div>
             <nav>
                 <div class="flex items-center justify-center">
                     <div @click="showModal = true" class="flex items-center mx-2">
