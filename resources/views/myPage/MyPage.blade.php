@@ -30,8 +30,7 @@
                 <img class="w-16 sm:w-18 md:w-20 mr-8 sm:mr-10" src="{{ $user->icon }}">
                 <div class="grid gap-y-2">
                     <p class="text-xl sm:text-2xl">{{ $user->name }}</p>
-                    <p class="text-xl sm:text-2xl">{{ $user->password }}</p>
-                    <p class="text-l sm:text-1xl">{{ $user->email }}</p>
+                    <p class="text-xl sm:text-2xl">{{ $user->email }}</p>
                 </div>
             </div>
             <div class="flex place-items-start">
@@ -68,27 +67,40 @@
     <!-- モーダル -->
     <div x-show="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" @click.away="showModal = false">
         <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg" @click.away="showModal = false">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-semibold">すべてのグループ</h2>
+        <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-semibold">編集</h2>
                 <button @click="showModal = false" class="text-gray-500 hover:text-gray-700">
                     <span class="text-2xl">&times;</span>
                 </button>
             </div>
             <form action="{{ route('mypage.update') }}" method="POST">
                 @csrf
-                <ul class="mb-4">
-                    @foreach($allGroups as $group)
-                    <li class="mb-2">
-                        <label class="flex items-center space-x-2">
-                            <input type="checkbox" name="group_ids[]" value="{{ $group->id }}"
-                                @if($user->groups->contains($group->id)) checked @endif
-                                class="form-checkbox h-5 w-5 text-blue-500">
-                            <span>{{ $group->name }}</span>
-                        </label>
-                    </li>
-                    @endforeach
-                </ul>
-                <button type="submit" class="mt-4 py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600">グループを更新</button>
+                <div class="mb-4">
+                    <label class="block text-ml font-semibold mb-2" for="name">名前</label>
+                    <input id="name" type="text" name="name" value="{{ $user->name }}" required autofocus class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-ml font-semibold mb-2" for="email">E-mail</label>
+                    <input id="email" type="email" name="email" value="{{ $user->email }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-ml font-semibold mb-2">グループ</label>
+                    <ul>
+                        @foreach($allGroups as $group)
+                        <li class="mb-2">
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="group_ids[]" value="{{ $group->id }}"
+                                    @if($user->groups->contains($group->id)) checked @endif
+                                    class="form-checkbox h-5 w-5 text-blue-500">
+                                <span>{{ $group->name }}</span>
+                            </label>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600">更新</button>
+                </div>
             </form>
         </div>
     </div>
