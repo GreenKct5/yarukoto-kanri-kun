@@ -13,12 +13,12 @@
         <img class="mx-auto w-56" src="../../../img/yakankun.png">
             <div class="mx-4">
                 <div class="flex items-center justify-between mb-6">
-                    <button type="button" onclick="location.href='./signIn'" class="bg-gray-500 hover:bg-gray-700 text-white border-2 border-gray-500 text-gray-500 font-bold w-full py-2 px-4 rounded">
+                    <button type="button" onclick="location.href='./signIn'" class="bg-green-500 hover:bg-green-600 text-white border-2 border-green-200 text-gray-500 font-bold w-full py-2 px-4 rounded">
                     log in
                     </button>
                 </div>
                 <div class="flex items-center justify-between mb-6">
-                    <button type="button" onclick="location.href='./signUp'" class="bg-white hover:bg-gray-200 border-2 border-gray-500 text-gray-500 font-bold w-full py-2 px-4 rounded">
+                    <button type="button" onclick="location.href='./signUp'" class="bg-green-100 hover:bg-green-200 border-2 border-green-200 text-gray-700 font-bold w-full py-2 px-4 rounded">
                     sign up
                     </button>
                 </div>
