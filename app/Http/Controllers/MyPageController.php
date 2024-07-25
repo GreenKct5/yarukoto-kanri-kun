@@ -24,8 +24,12 @@ class MyPageController extends Controller
     public function update(Request $request)
     {
         $user = Auth::user();
-        if($request->input('name')!=null) $user->name = $request->input('name');
-        if($request->input('email')!=null) $user->email = $request->input('email');
+        if ($request->input('name') != null) {
+            $user->name = $request->input('name');
+        }
+        if ($request->input('email') != null) {
+            $user->email = $request->input('email');
+        }
         $user->save();
 
         $selectedGroupIds = $request->input('group_ids', []);
