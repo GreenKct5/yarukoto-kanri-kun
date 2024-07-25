@@ -31,7 +31,7 @@
                     <input id="password" type="password" name="password" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
                 <div class="flex items-center justify-between">
-                    <input type="submit" class="bg-white hover:bg-gray-200 border-2 border-gray-500 text-gray-500 font-bold w-full py-2 px-4 rounded">
+                    <input type="submit" class="bg-green-100 hover:bg-green-300 border-2 border-green-500 text-gray-700 font-bold w-full py-2 px-4 rounded">
                     sign up
                     </input>
                 </div>

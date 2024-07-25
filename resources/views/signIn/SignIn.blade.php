@@ -32,7 +32,7 @@
                     </div>
                 @endif
                 <div class="flex items-center justify-between">
-                    <input type="submit" class="bg-gray-500 hover:bg-gray-700 text-white font-bold w-full py-2 px-4 rounded"></input>
+                    <input type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold w-full py-2 px-4 rounded"></input>
                 </div>
             </form>
         </div>
