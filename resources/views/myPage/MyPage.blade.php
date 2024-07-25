@@ -44,13 +44,12 @@
                 <div class="text-xl sm:text-2xl text-rose-400">ログアウト</div>
             </a>
             <button class="flex flex-row-reverse gap-2">
-                <a class="flex items border bg-gray-400 rounded-md px-6 py-3" href="">
+                <a class="flex items border border-gray-400 bg-gray-400 rounded-md px-6 py-3" href="">
                     <div class="text-xl sm:text-2xl text-gray-50">編集</div>
                 </a>
                 <a class="flex items border border-gray-400 rounded-md px-6 py-3" href="../home/">
                     <div class="text-xl sm:text-2xl text-gray-400">キャンセル</div>
                 </a>
-
             </button>
         </div>
         <div class="fixed z-99999 bottom-10 right-10 py-5 px-5 bg-gray-400 rounded-full shadow-lg"><img
