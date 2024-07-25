@@ -30,8 +30,7 @@
                 <img class="w-16 sm:w-18 md:w-20 mr-8 sm:mr-10" src="{{ $user->icon }}">
                 <div class="grid gap-y-2">
                     <p class="text-xl sm:text-2xl">{{ $user->name }}</p>
-                    <p class="text-xl sm:text-2xl">{{ $user->password }}</p>
-                    <p class="text-l sm:text-1xl">{{ $user->email }}</p>
+                    <p class="text-xl sm:text-2xl">{{ $user->email }}</p>
                 </div>
             </div>
             <div class="flex place-items-start">
@@ -78,11 +77,11 @@
                 @csrf
                 <div class="mb-4">
                     <label class="block text-ml font-semibold mb-2" for="name">名前</label>
-                    <input id="name" type="text" name="name" required autofocus class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <input id="name" type="text" name="name" value="{{ $user->name }}" required autofocus class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
                 <div class="mb-4">
                     <label class="block text-ml font-semibold mb-2" for="email">E-mail</label>
-                    <input id="email" type="email" name="email" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <input id="email" type="email" name="email" value="{{ $user->email }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
                 <div class="mb-4">
                     <label class="block text-ml font-semibold mb-2">グループ</label>
