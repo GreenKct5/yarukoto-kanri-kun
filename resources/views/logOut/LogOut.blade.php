@@ -21,6 +21,19 @@
             </nav>
         </div>
     </header>
+    <main>
+        <div class="grid gap-y-8 mt-28 sm:mt-32 mx-8 sm:mx-12 md:mx-24">
+            <p class="text-xl md:text-2xl">ログアウトしますか？</p>
+            <button class="flex flex-row-reverse gap-2">
+                <a class="flex items border border-rose-400 bg-rose-400 rounded-md px-6 py-3" href="../">
+                    <div class="text-xl sm:text-2xl text-gray-50">ログアウト</div>
+                </a>
+                <a class="flex items border border-gray-400 rounded-md px-6 py-3" href="../myPage/">
+                    <div class="text-xl sm:text-2xl text-gray-400">戻る</div>
+                </a>
+            </button>
+        </div>
+    </main>
 </body>
 
 </html>
