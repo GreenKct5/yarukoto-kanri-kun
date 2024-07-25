@@ -112,8 +112,9 @@ class TodoController extends Controller
     }
 
     // 課題を削除
-    public function destroy($id)
+    public function destroy(Request $request)
     {
+        $id = $request->id;
         $todo = Todo::findOrFail($id);
         $todo->delete();
 
