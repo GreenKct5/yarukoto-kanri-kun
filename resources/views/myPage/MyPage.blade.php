@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-white" x-data="{ showModal: false }">
-    <header class="fixed top-0 left-0 w-full bg-blue-100 shadow-md z-10">
+    <header class="fixed top-0 left-0 w-full bg-green-100 shadow-md z-10">
         <div class="container mx-auto py-2 flex justify-between items-center">
             <button class="flex" onclick="window.location.href='{{ route('loading.home') }}'">
                 <img class="ml-10" src="../../../img/back.svg">
@@ -52,17 +52,17 @@
                 <div class="text-xl sm:text-2xl text-rose-400">ログアウト</div>
             </a>
             <button class="flex flex-row-reverse gap-2">
-                <div class="flex items border border-gray-400 bg-gray-400 rounded-md px-6 py-3" @click="showModal = true">
+                <div class="flex items border border-green-400 bg-green-400 rounded-md px-6 py-3" @click="showModal = true">
                     <div class="text-xl sm:text-2xl text-gray-50">編集</div>
                 </div>
-                <div class="flex items border border-gray-400 rounded-md px-6 py-3" onclick="window.location.href='{{ route('loading.home') }}'">
-                    <div class="text-xl sm:text-2xl text-gray-400">キャンセル</div>
+                <div class="flex items border border-green-400 rounded-md px-6 py-3" onclick="window.location.href='{{ route('loading.home') }}'">
+                    <div class="text-xl sm:text-2xl text-green-400">キャンセル</div>
                 </div>
             </button>
         </div>
-        <div class="fixed z-99999 bottom-10 right-10 md:right-24 lg:right-48 p-5 bg-gray-400 rounded-full shadow-xl">
+        <!-- <div class="fixed z-99999 bottom-10 right-10 md:right-24 lg:right-48 p-5 bg-green-400 rounded-full shadow-xl">
             <img src="../../../img/save.svg">
-        </div>
+        </div> -->
     </main>
     <!-- モーダル -->
     <div x-show="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" @click.away="showModal = false">
@@ -99,7 +99,7 @@
                     </ul>
                 </div>
                 <div class="flex justify-end">
-                    <button type="submit" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600">更新</button>
+                    <button type="submit" class="py-2 px-4 bg-green-500 text-white rounded hover:bg-green-600">更新</button>
                 </div>
             </form>
         </div>

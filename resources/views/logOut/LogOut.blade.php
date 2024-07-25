@@ -10,7 +10,7 @@
 </head>
 
 <body class="bg-gray-100">
-    <header class="fixed top-0 left-0 w-full bg-blue-100 shadow-md z-10">
+    <header class="fixed top-0 left-0 w-full bg-green-100 shadow-md z-10">
         <div class="container mx-auto py-2 flex justify-between items-center">
             <button class="flex"><a href="../myPage/"><img class="ml-10" src="../../../img/back.svg"></a></button>
             <nav>

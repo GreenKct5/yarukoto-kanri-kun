@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2" defer></script>
 </head>
 <body class="bg-gray-100" x-data="{ showModal: false }">
-    <header class="fixed top-0 left-0 w-full bg-blue-100 shadow-md z-10">
+    <header class="fixed top-0 left-0 w-full bg-green-100 shadow-md z-10">
         <div class="container mx-auto py-2 flex justify-between items-center">
             <div class="flex"><a href="{{ route('mypage.index') }}"><img class="ml-10" src="../../../img/icon.svg"></a></div>
             <nav>
@@ -41,7 +41,7 @@
                     $group = $subject && $subject->group ? $subject->group->name : 'Unknown';
                     $subjectName = $subject ? $subject->name : 'Unknown';
                 @endphp
-                <div class="mb-6 p-2 bg-blue-200 rounded-md shadow">
+                <div class="mb-6 p-2 bg-green-200 rounded-md shadow">
                     <b class="ml-1 text-lg">{{ $subjectName }}</b>
                     @foreach($subjectTodos as $todo)
                         <div class="h-auto max-w-8xl mx-5 my-2 bg-white rounded-md">
@@ -58,7 +58,7 @@
                 </div>
             @endforeach
         </div>
-        <button onclick="location.href='./createTodo'" class="fixed z-50 bottom-10 right-10 py-5 px-5 bg-blue-500 rounded-full">
+        <button onclick="location.href='./createTodo'" class="fixed z-50 bottom-10 right-10 py-5 px-5 bg-green-500 rounded-full">
             <img src="../../../img/add_button.svg">
         </button>
     </main>
