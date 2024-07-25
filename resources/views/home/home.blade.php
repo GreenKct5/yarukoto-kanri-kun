@@ -46,7 +46,18 @@
                     @foreach($subjectTodos as $todo)
                         <div class="h-auto max-w-8xl mx-5 my-2 bg-white rounded-md">
                             <div class="flex ml-1"><input id="acd-{{ $todo->id }}" class="acd-check" type="checkbox"><img class="object-scale-down h-5 w-5" src="../../../img/task.svg">
-                            <p class="ml-1">{{ $todo->title }}</p></div>
+                            <p class="ml-1">{{ $todo->title }}</p>
+
+                            <form action="{{ route('todos.destroy', ['id'=>$todo->id]) }}" method="POST" class="ml-auto mr-4">
+                            @csrf
+                            <div class="ml-auto">
+                                <button type="submit">
+                                    <img class="object-scale-down h-5 w-5" src="../../../img/trash.svg">
+                                </button>
+                            </div>
+                        </form>
+
+                        </div>
                             <div class="acd-content">
                                 <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/date.svg"><p class="ml-1">{{ $todo->deadline }}</p></div>
                                 <div class="flex">　<img class="object-scale-down h-5 w-5" src="../../../img/propose.svg"><p class="ml-1">{{ $todo->submit_place }}</p></div>
