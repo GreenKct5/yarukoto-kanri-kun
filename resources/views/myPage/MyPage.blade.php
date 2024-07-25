@@ -22,7 +22,7 @@
         </div>
     </header>
     <main>
-        <div class="grid gap-y-8 mt-28 sm:mt-32 mx-8 sm:mx-12 md:mx-24">
+        <div class="grid gap-y-8 mt-28 sm:mt-32 mx-8 sm:mx-12 md:mx-24 lg:mx-48">
             <div class="flex items-center">
                 <img class="w-16 sm:w-18 md:w-20 mr-8 sm:mr-10" src="../../../img/icon.svg">
                 <div class="grid gap-y-2">
@@ -52,8 +52,9 @@
                 </a>
             </button>
         </div>
-        <div class="fixed z-99999 bottom-10 right-10 py-5 px-5 bg-gray-400 rounded-full shadow-lg"><img
-                src="../../../img/save.svg"></div>
+        <div class="fixed z-99999 bottom-10 right-10 md:right-24 lg:right-48 p-5 bg-gray-400 rounded-full shadow-xl">
+            <img src="../../../img/save.svg">
+        </div>
     </main>
 
 </html>
